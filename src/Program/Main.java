@@ -8,7 +8,7 @@ public class Main {
 	
 	
 		
-	TUI tui = new TUI();	
+	TUI tui = new TUI(null);	
 
 	}
 
