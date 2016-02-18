@@ -4,46 +4,36 @@ import java.util.ArrayList;
 
 public class PassGen {
 
-	ArrayList<Character> alfabet = new ArrayList<Character>();
-	ArrayList<Character> Alfabet = new ArrayList<Character>();
-	ArrayList<Integer> cifre = new ArrayList<Integer>();
-	ArrayList<Character> specialtegn = new ArrayList<Character>();
-	ArrayList<ArrayList<Character>> list = new ArrayList<ArrayList<Character>>();
+	private ArrayList<String> karakterer = new ArrayList<String>();
 	private String password;
 	
 	public void array(){
+		for (int i = 0; i<=9 ; i++){
+			karakterer.add(Integer.toString(i));
+		}
 		for (char letter = 'a'; letter <= 'z'; letter++){
-			alfabet.add(letter);
+			karakterer.add(Character.toString(letter));
 		}
 		for (char letter = 'A'; letter <= 'Z'; letter++){
-			Alfabet.add(letter);
+			karakterer.add(Character.toString(letter));
 		}
-		for (int i = 0; i<=9 ; i++){
-			cifre.add(i);
-		}
-		specialtegn.add('.');
-		specialtegn.add('-');
-		specialtegn.add('_');
-		specialtegn.add('+');
-		specialtegn.add('!');
-		specialtegn.add('?');
-		specialtegn.add('=');
-
-		list.add(alfabet);
-		list.add(Alfabet);
-		list.add(specialtegn);
+		karakterer.add(".");
+		karakterer.add("-");
+		karakterer.add("_");
+		karakterer.add("+");
+		karakterer.add("!");
+		karakterer.add("?");
+		karakterer.add("=");
 	}
-
-
+	
+	//tal starter ved index 		0-9
+	//små bogstaver ved index 		10-35
+	//store bogstaver ved index 	36-61
+	//tegn ved index 				62-68
+	
 	public void passGen(){
 		array();
-		System.out.println(list.get(0).get(0));
-	}
-
-
-
-	//tester
-	public static void main(String[] args) {
-		passGen();
+		for(int i = 0 ; i < karakterer.size() ; i++)
+		System.out.println(karakterer.get(i)+" at index: "+i);
 	}
 }
