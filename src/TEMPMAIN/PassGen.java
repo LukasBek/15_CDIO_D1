@@ -5,13 +5,11 @@ import java.util.ArrayList;
 public class PassGen {
 
 	private ArrayList<String> karakterer = new ArrayList<String>();
-	private ArrayList<Integer> rand = new ArrayList<Integer>();
 	private String password = "";
 	private boolean smaaBogstaver;
 	private boolean storeBogstaver;
 	private boolean tal;
 	private boolean tegn;
-	private boolean go = true;
 	private int tilf;
 
 	public void array(){
@@ -32,14 +30,6 @@ public class PassGen {
 		karakterer.add("?");
 		karakterer.add("=");
 		
-			 rand.add((int) (Math.random()*69));
-			 rand.add((int) (Math.random()*69));
-			 rand.add((int) (Math.random()*69));
-			 rand.add((int) (Math.random()*69));
-			 rand.add((int) (Math.random()*69));
-			 rand.add((int) (Math.random()*69));
-
-		
 	}
 
 
@@ -59,18 +49,21 @@ public class PassGen {
 				tal=false;
 				tegn=false;
 			}
+			
+				tilf = (int) (Math.random()*69);
+;
+				if(tilf<=9&&!tal)			password = password + karakterer.get(tilf);
+;
+				if(tilf>=10 && tilf<=35&&!smaaBogstaver)			password = password + karakterer.get(tilf);
+;
+				if(tilf>=36 && tilf<=61&&!storeBogstaver)			password = password + karakterer.get(tilf);
+;
+				if(tilf>=62 && tilf<=68&&!tegn)			password = password + karakterer.get(tilf);
+;
 
-			while(go){
-				tilf = rand.get(i);
-				go = false;
-				if(tilf<=9&&tal)go=true;
-				if(tilf>=10 && tilf<=35&&smaaBogstaver)go=true;
-				if(tilf>=36 && tilf<=61&&storeBogstaver)go=true;
-				if(tilf>=62 && tilf<=68&&tegn)go=true;
+			
 
-			}
-
-			password = password + karakterer.get(tilf);
+//			password = password + karakterer.get(tilf);
 
 			if(tilf<=9)tal=true;
 			if(tilf>=10 && tilf<=35)smaaBogstaver=true;
