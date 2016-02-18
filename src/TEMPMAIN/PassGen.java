@@ -29,10 +29,7 @@ public class PassGen {
 		karakterer.add("!");
 		karakterer.add("?");
 		karakterer.add("=");
-		
 	}
-
-
 	//tal starter ved index 		0-9
 	//små bogstaver ved index 		10-35
 	//store bogstaver ved index 	36-61
@@ -49,30 +46,17 @@ public class PassGen {
 				tal=false;
 				tegn=false;
 			}
-			
-				tilf = (int) (Math.random()*69);
-;
-				if(tilf<=9&&!tal)			password = password + karakterer.get(tilf);
-;
-				if(tilf>=10 && tilf<=35&&!smaaBogstaver)			password = password + karakterer.get(tilf);
-;
-				if(tilf>=36 && tilf<=61&&!storeBogstaver)			password = password + karakterer.get(tilf);
-;
-				if(tilf>=62 && tilf<=68&&!tegn)			password = password + karakterer.get(tilf);
-;
-
-			
-
-//			password = password + karakterer.get(tilf);
+			tilf = (int) (Math.random()*69);
+			if(tilf<=9&&!tal)							password = password + karakterer.get(tilf);
+			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	password = password + karakterer.get(tilf);
+			if(tilf>=36 && tilf<=61&&!storeBogstaver)	password = password + karakterer.get(tilf);
+			if(tilf>=62 && tilf<=68&&!tegn)				password = password + karakterer.get(tilf);
 
 			if(tilf<=9)tal=true;
 			if(tilf>=10 && tilf<=35)smaaBogstaver=true;
 			if(tilf>=36 && tilf<=61)storeBogstaver=true;
 			if(tilf>=62 && tilf<=68)tegn=true;
-
 		}
-
 		return password;
-
 	}
 }
