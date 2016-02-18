@@ -5,8 +5,15 @@ import java.util.ArrayList;
 public class PassGen {
 
 	private ArrayList<String> karakterer = new ArrayList<String>();
-	private String password;
-	
+	private ArrayList<Integer> rand = new ArrayList<Integer>();
+	private String password = "";
+	private boolean smaaBogstaver;
+	private boolean storeBogstaver;
+	private boolean tal;
+	private boolean tegn;
+	private boolean go = true;
+	private int tilf;
+
 	public void array(){
 		for (int i = 0; i<=9 ; i++){
 			karakterer.add(Integer.toString(i));
@@ -24,16 +31,55 @@ public class PassGen {
 		karakterer.add("!");
 		karakterer.add("?");
 		karakterer.add("=");
+		
+			 rand.add((int) (Math.random()*69));
+			 rand.add((int) (Math.random()*69));
+			 rand.add((int) (Math.random()*69));
+			 rand.add((int) (Math.random()*69));
+			 rand.add((int) (Math.random()*69));
+			 rand.add((int) (Math.random()*69));
+
+		
 	}
-	
+
+
 	//tal starter ved index 		0-9
 	//små bogstaver ved index 		10-35
 	//store bogstaver ved index 	36-61
 	//tegn ved index 				62-68
-	
-	public void passGen(){
+
+	public String passGen(){
 		array();
-		for(int i = 0 ; i < karakterer.size() ; i++)
-		System.out.println(karakterer.get(i)+" at index: "+i);
+
+		for(int i=0 ; password.length()<6 ; i++){
+			//hvis alle er true bliver de alle false
+			if(smaaBogstaver && storeBogstaver && tal && tegn){
+				smaaBogstaver=false;
+				storeBogstaver=false;
+				tal=false;
+				tegn=false;
+			}
+
+			while(go){
+				tilf = rand.get(i);
+				go = false;
+				if(tilf<=9&&tal)go=true;
+				if(tilf>=10 && tilf<=35&&smaaBogstaver)go=true;
+				if(tilf>=36 && tilf<=61&&storeBogstaver)go=true;
+				if(tilf>=62 && tilf<=68&&tegn)go=true;
+
+			}
+
+			password = password + karakterer.get(tilf);
+
+			if(tilf<=9)tal=true;
+			if(tilf>=10 && tilf<=35)smaaBogstaver=true;
+			if(tilf>=36 && tilf<=61)storeBogstaver=true;
+			if(tilf>=62 && tilf<=68)tegn=true;
+
+		}
+
+		return password;
+
 	}
 }
