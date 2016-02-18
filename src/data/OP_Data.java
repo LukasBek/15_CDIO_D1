@@ -1,12 +1,8 @@
-package controllere;
+package data;
 
 import java.util.ArrayList;
 
-import data.operatoer;
-
-public class OP_Controller {
-	
-	private operatoer operatoer;
+public class OP_Data {
 	
 	ArrayList<operatoer> opArray = new ArrayList<operatoer>();
 	
@@ -15,7 +11,6 @@ public class OP_Controller {
 		
 		opArray.add(new operatoer(oprId, oprNavn, ini, cpr, admin, Password));
 
-		
 	}
 	
 	/**
@@ -57,5 +52,8 @@ public class OP_Controller {
 	public int getOprId(int index){
 		return (opArray.get(index)).getOprId();
 	}
+	
+	
+	
 
 }
