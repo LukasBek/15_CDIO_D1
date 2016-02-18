@@ -2,16 +2,16 @@ package controllere;
 
 import java.util.Scanner;
 
-import funktionalitet.Funktion;
+import funktionalitet.Funktionalitet;
 
 public class loginController {
 	
 	private Scanner sc;
-	private Funktion f;
+	private Funktionalitet f;
 	
 	int valg;
 	
-	public loginController(Scanner sc, Funktion f) {
+	public loginController(Scanner sc, Funktionalitet f) {
 		this.sc=sc;
 		this.f=f;
 	}
@@ -26,7 +26,7 @@ public class loginController {
 			String pass = sc.nextLine();
 			f.tjekOPLogin(ID, pass);
 			
-			if()
+//			if()
 		}
 		if (valg == 2){
 			

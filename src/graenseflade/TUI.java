@@ -3,19 +3,19 @@ package graenseflade;
 import java.util.Scanner;
 
 import controllere.loginController;
-import funktionalitet.Funktion;
+import funktionalitet.Funktionalitet;
 
 //textual user interface
 public class TUI {
 	
-	private Funktion f;
+	private Funktionalitet f;
 	
 	Scanner sc = new Scanner(System.in);
 	
 	loginController lC = new loginController(sc, f);
 
 	
-	public TUI(Funktion f){
+	public TUI(Funktionalitet f){
 
 		System.out.println(
 				"---------------------------------------\n"
