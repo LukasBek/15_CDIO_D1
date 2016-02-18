@@ -1,4 +1,4 @@
-package Program;
+package data;
 
 public class operatoer {
 
