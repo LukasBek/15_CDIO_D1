@@ -6,15 +6,15 @@ public class operatoer {
 	private String oprNavn;
 	private String ini;
 	private String cpr;
-	private String Password;
+	private String Adgangskode;
 	
-	public operatoer(int oprId, String oprNavn, String ini, String cpr, boolean admin, String Password){
+	public operatoer(int oprId, String oprNavn, String ini, String cpr, boolean admin, String Adgangskode){
 	
 		this.cpr = cpr;
 		this.ini = ini;
 		this.oprNavn = oprNavn;
 		this.oprId = oprId;
-		this.Password = Password;
+		this.Adgangskode = Adgangskode;
 	}
 	
 	public int getOprId() {
@@ -42,11 +42,11 @@ public class operatoer {
 	public void setCpr(String cpr) {
 		
 	}
-	public String getPassword() {
-		return Password;
+	public String getAdgangskode() {
+		return Adgangskode;
 		
 	}
-	public void setPassword(String password){
+	public void setAdgangskode(String adgangskode){
 		
 
 	}

@@ -2,16 +2,16 @@ package Program;
 
 import java.util.ArrayList;
 
-public class PassGen {
+public class KodeGen {
 
 	private ArrayList<String> karakterer = new ArrayList<String>();
-	private String password = "";
+	private String adgangskode = "";
 	private boolean smaaBogstaver;
 	private boolean storeBogstaver;
 	private boolean tal;
 	private boolean tegn;
 	private int tilf;
-	private int passLaengde;
+	private int kodeLaengde;
 
 	//Metoden opretter et array med alle de mulige cifre til det tilfaeldige password.
 	public void array(){
@@ -37,14 +37,14 @@ public class PassGen {
 	//store bogstaver ved index 	36-61
 	//tegn ved index 				62-68
 
-	public void passGen(){
+	public void kodeGen(){
 		//Opretter arrayet
 		array();
 		
-		//Hvor langt skal password være? (krav paa min 6)
-		passLaengde = 6;
+		//Hvor langt skal adgangskode være? (krav paa min 6)
+		kodeLaengde = 6;
 
-		while(password.length()<passLaengde){
+		while(adgangskode.length()<kodeLaengde){
 			//2. (se 1. længere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
 			if(smaaBogstaver && storeBogstaver && tal && tegn){
 				smaaBogstaver=false;
@@ -56,10 +56,10 @@ public class PassGen {
 			tilf = (int) (Math.random()*69);
 			
 			//Indsaetter værdien i koden hvis den er whitelisted.
-			if(tilf<=9&&!tal)							password = password + karakterer.get(tilf);
-			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	password = password + karakterer.get(tilf);
-			if(tilf>=36 && tilf<=61&&!storeBogstaver)	password = password + karakterer.get(tilf);
-			if(tilf>=62 && tilf<=68&&!tegn)				password = password + karakterer.get(tilf);
+			if(tilf<=9&&!tal)							adgangskode = adgangskode + karakterer.get(tilf);
+			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
+			if(tilf>=36 && tilf<=61&&!storeBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
+			if(tilf>=62 && tilf<=68&&!tegn)				adgangskode = adgangskode + karakterer.get(tilf);
 			
 			//1. For at der er 1 af hver 4 mulige tegn bliver de blacklisted her 1 af gangen.
 			if(tilf<=9)tal=true;
@@ -68,7 +68,12 @@ public class PassGen {
 			if(tilf>=62 && tilf<=68)tegn=true;
 		}
 	}
-	public String getRandomPassword(){
-		return password;
+	/**
+	 * 
+	 * @return Genererer et tilfældigt kodeord med DTU's krav for et kodeord.
+	 */
+	public String getTilfAdgangskode(){
+		kodeGen();
+		return adgangskode;
 	}
 }

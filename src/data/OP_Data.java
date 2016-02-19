@@ -7,9 +7,9 @@ public class OP_Data {
 	ArrayList<operatoer> opArray = new ArrayList<operatoer>();
 	
 	
-	public void addOp(int oprId, String oprNavn, String ini, String cpr, boolean admin, String Password){
+	public void addOp(int oprId, String oprNavn, String ini, String cpr, boolean admin, String Adgangskode){
 		
-		opArray.add(new operatoer(oprId, oprNavn, ini, cpr, admin, Password));
+		opArray.add(new operatoer(oprId, oprNavn, ini, cpr, admin, Adgangskode));
 
 	}
 	
@@ -41,8 +41,8 @@ public class OP_Data {
 	 * @param index : the place in the array list the method will be called
 	 * @return The Password of the operator
 	 */
-	public String getPassword(int index){	
-		return (opArray.get(index)).getPassword();
+	public String getAdgangskode(int index){	
+		return (opArray.get(index)).getAdgangskode();
 	}
 	
 	/**

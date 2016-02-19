@@ -3,13 +3,13 @@ package data;
 public class Sysadmin {
 
 	private int ini;
-	private String Password;
+	private String Adgangskode;
 	private boolean admin;
 	
 
-public Sysadmin(int ini, String Password, boolean admin){
+public Sysadmin(int ini, String Adgangskode, boolean admin){
 	this.ini=ini;
-	this.Password=Password;
+	this.Adgangskode=Adgangskode;
 	this.admin=admin;
 
 }
@@ -22,10 +22,10 @@ public void setini(int ini){
 }
 
 public String getPassword(){
-	return Password;
+	return Adgangskode;
 }
-public void setPassword(String Password){
-	this.Password=Password;
+public void setPassword(String Adgangskode){
+	this.Adgangskode=Adgangskode;
 }
 public boolean getadmin(){
 	return admin;

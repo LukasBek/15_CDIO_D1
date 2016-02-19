@@ -28,7 +28,7 @@ public class Funktionalitet implements IFunktionalitet {
 		OP_Data.getCpr(index);
 		OP_Data.getIni(index);
 		OP_Data.getOprNavn(index);
-		OP_Data.getPassword(index);
+		OP_Data.getAdgangskode(index);
 		OP_Data.getOprId(index);
 		
 	}

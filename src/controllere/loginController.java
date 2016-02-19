@@ -22,9 +22,9 @@ public class loginController {
 		if (valg == 1){
 			System.out.println("Indtast ID: ");
 			int ID = sc.nextInt();
-			System.out.println("Indtast Password: ");
-			String pass = sc.nextLine();
-			f.tjekOPLogin(ID, pass);
+			System.out.println("Indtast Adgangskode: ");
+			String kode = sc.nextLine();
+			f.tjekOPLogin(ID, kode);
 			
 //			if()
 		}
