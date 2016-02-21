@@ -37,12 +37,12 @@ public class KodeGen {
 	//store bogstaver ved index 	36-61
 	//tegn ved index 				62-68
 
-	public void kodeGen(){
+	public void kodeGen(int kodeLængde){
 		//Opretter arrayet
 		array();
 		
 		//Hvor langt skal adgangskode være? (krav paa min 6)
-		kodeLaengde = 6;
+		kodeLaengde = kodeLængde;
 
 		while(adgangskode.length()<kodeLaengde){
 			//2. (se 1. længere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
@@ -71,9 +71,11 @@ public class KodeGen {
 	/**
 	 * 
 	 * @return Genererer et tilfældigt kodeord med DTU's krav for et kodeord.
+	 * @param Indsaet hvor langt du ønsker kodeordet skal være
+	 * 
 	 */
-	public String getTilfAdgangskode(){
-		kodeGen();
+	public String getTilfAdgangskode(int kodeLaengde){
+		kodeGen(kodeLaengde);
 		return adgangskode;
 	}
 }
