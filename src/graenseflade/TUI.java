@@ -2,7 +2,7 @@ package graenseflade;
 
 import java.util.Scanner;
 
-import controllere.loginController;
+import controllere.ProgramController;
 import funktionalitet.Funktionalitet;
 
 //textual user interface
@@ -12,7 +12,7 @@ public class TUI {
 	
 	Scanner sc = new Scanner(System.in);
 	
-	loginController lC = new loginController(sc, f);
+	ProgramController lC = new ProgramController(sc, f);
 
 	
 	public TUI(Funktionalitet f){

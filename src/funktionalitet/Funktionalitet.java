@@ -29,11 +29,11 @@ public class Funktionalitet implements IFunktionalitet {
 					if(adminCheck == 2){
 						if(oD.getAdminStatus(i) == 2){
 							return true;
-						}
-					}
+						}break;
+					}return true;
 				}else{
-					return true;
-				}break;
+					
+				}
 			}
 		}
 		return false;
