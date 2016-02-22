@@ -24,6 +24,7 @@ public class Adgangskode {
 		for (char letter = 'A'; letter <= 'Z'; letter++){
 			karakterer.add(Character.toString(letter));
 		}
+		
 		karakterer.add(".");
 		karakterer.add("-");
 		karakterer.add("_");
@@ -31,6 +32,7 @@ public class Adgangskode {
 		karakterer.add("!");
 		karakterer.add("?");
 		karakterer.add("=");
+		System.out.println(karakterer);
 	}
 	//tal starter ved index 		0-9
 	//smaa bogstaver ved index 		10-35
@@ -121,6 +123,7 @@ public class Adgangskode {
 					tegn = true;
 					break;
 				}
+			}
 
 				if(!tal){
 					System.out.println("Din adgangskode skal indholde mindst et tal!");
@@ -138,7 +141,6 @@ public class Adgangskode {
 					System.out.println("Din adgangskode skal indholde mindst et specialtegn!");
 					return false;
 				}
-			}
 		}
 		return true;
 	}
