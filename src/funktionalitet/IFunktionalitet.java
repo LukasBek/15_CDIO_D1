@@ -14,5 +14,5 @@ public interface IFunktionalitet {
 
 	void showOperatoer(int iD);
 
-	void getMaalinger();
+	void showMaalinger();
 }

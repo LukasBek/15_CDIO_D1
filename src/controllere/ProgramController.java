@@ -81,6 +81,7 @@ public class ProgramController {
 						+ "(Advarsel - det er ikke muligt at få operatøren tilbage: ");
 				ID = sc.nextInt();
 				f.deleteOperatoer(ID);
+				System.out.println("Operatør "+ID+" er nu blevet slettet!");
 			}
 			else if (valg == 3){
 				//TODO implement this...

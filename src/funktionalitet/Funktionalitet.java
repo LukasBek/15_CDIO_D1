@@ -12,6 +12,7 @@ public class Funktionalitet implements IFunktionalitet {
 	private Adgangskode ak = new Adgangskode();
 	
 	private int maalingsID = 1;
+	private int oprId = 11;	
 
 	public Funktionalitet() {
 
@@ -69,15 +70,14 @@ public class Funktionalitet implements IFunktionalitet {
 	@Override
 	public void createOperatoer(String oprNavn, String cpr, int admin) {		
 
-		int oprId = 100;	
 		String Adgangskode = ak.getNyKode(6);		
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
 		System.out.println(Adgangskode);
+		oprId++;
 	}
 
 	@Override
 	public void deleteOperatoer(int iD) {	
-		
 		int index = -1;	
 		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
 			if (iD == o.getOprId(i)){			
@@ -96,9 +96,10 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 
 	@Override
-	public void getMaalinger(){
+	public void showMaalinger(){
+		
 		for (int i = 0; i < v.getVaegtArratLaengde(); i++){
-			v.toString(i);
+			System.out.println(v.toString(i));
 		}
 	}
 }
