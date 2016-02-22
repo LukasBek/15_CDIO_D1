@@ -44,9 +44,15 @@ public class Adgangskode {
 	 * 
 	 */
 	public String getNyKode(int kodeLaengde){
+
+		tal=false;
+		tegn= false;
+		smaaBogstaver=false;
+		storeBogstaver=false;
+
 		//Opretter arrayet
 		array();
-		
+
 		//Hvor langt skal adgangskode v�re? (krav paa min 6)
 		this.kodeLaengde = kodeLaengde;
 
@@ -60,22 +66,81 @@ public class Adgangskode {
 			}
 			//Generer et tilfaeldigt tal som bruges til arrayet.
 			tilf = (int) (Math.random()*69);
-			
+
 			//Indsaetter v�rdien i koden hvis den er whitelisted.
 			if(tilf<=9&&!tal)							adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=36 && tilf<=61&&!storeBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=62 && tilf<=68&&!tegn)				adgangskode = adgangskode + karakterer.get(tilf);
-			
+
 			//1. For at der er 1 af hver 4 mulige tegn bliver de blacklisted her 1 af gangen.
 			if(tilf<=9)tal=true;
 			if(tilf>=10 && tilf<=35)smaaBogstaver=true;
 			if(tilf>=36 && tilf<=61)storeBogstaver=true;
 			if(tilf>=62 && tilf<=68)tegn=true;
-			
-			
+
+
 		}
+
 		return adgangskode;
+	}
+
+	public boolean kontrolKode(String adgangskode){
+
+		array();
+
+		tal=false;
+		tegn= false;
+		smaaBogstaver=false;
+		storeBogstaver=false;
+
+		if(adgangskode.length()<6){
+			System.out.print("Din adgangskode skal bestaa af mindst 6 karakterer!");
+			return false;
+		}else{
+			for(int j=0; j<=9; j++){
+				if(adgangskode.contains(karakterer.get(j))){
+					tal = true;
+					break;
+				}
+			}
+			for(int j=10; j<=35; j++){
+				if(adgangskode.contains(karakterer.get(j))){
+					smaaBogstaver = true;
+					break;
+				}
+			}
+			for(int j=36; j<=61; j++){
+				if(adgangskode.contains(karakterer.get(j))){
+					storeBogstaver = true;
+					break;
+				}
+			}
+			for(int j=62; j<=68; j++){
+				if(adgangskode.contains(karakterer.get(j))){
+					tegn = true;
+					break;
+				}
+
+				if(!tal){
+					System.out.println("Din adgangskode skal indholde mindst et tal!");
+					return false;
+				}
+				if(!smaaBogstaver){
+					System.out.println("Din adgangskode skal indholde mindst et smaat bogstav!");
+					return false;
+				}
+				if(!storeBogstaver){
+					System.out.println("Din adgangskode skal indholde mindst et stort bogstav!");
+					return false;
+				}
+				if(!tegn){
+					System.out.println("Din adgangskode skal indholde mindst et specialtegn!");
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 }
 
