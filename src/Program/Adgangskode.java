@@ -32,7 +32,6 @@ public class Adgangskode {
 		karakterer.add("!");
 		karakterer.add("?");
 		karakterer.add("=");
-		System.out.println(karakterer);
 	}
 	//tal starter ved index 		0-9
 	//smaa bogstaver ved index 		10-35
