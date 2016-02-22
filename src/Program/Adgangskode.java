@@ -2,7 +2,7 @@ package Program;
 
 import java.util.ArrayList;
 
-public class KodeGen {
+public class Adgangskode {
 
 	private ArrayList<String> karakterer = new ArrayList<String>();
 	private String adgangskode = "";
@@ -37,7 +37,13 @@ public class KodeGen {
 	//store bogstaver ved index 	36-61
 	//tegn ved index 				62-68
 
-	public void kodeGen(int kodeLaengde){
+	/**
+	 * 
+	 * @return Genererer et tilf�ldigt kodeord med DTU's krav for et kodeord.
+	 * @param Indsaet hvor langt du �nsker kodeordet skal v�re
+	 * 
+	 */
+	public String getNyKode(int kodeLaengde){
 		//Opretter arrayet
 		array();
 		
@@ -45,7 +51,7 @@ public class KodeGen {
 		this.kodeLaengde = kodeLaengde;
 
 		while(adgangskode.length()<kodeLaengde){
-			//2. (se 1. laengere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
+			//2. (se 1. l�ngere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
 			if(smaaBogstaver && storeBogstaver && tal && tegn){
 				smaaBogstaver=false;
 				storeBogstaver=false;
@@ -55,7 +61,7 @@ public class KodeGen {
 			//Generer et tilfaeldigt tal som bruges til arrayet.
 			tilf = (int) (Math.random()*69);
 			
-			//Indsaetter vaerdien i koden hvis den er whitelisted.
+			//Indsaetter v�rdien i koden hvis den er whitelisted.
 			if(tilf<=9&&!tal)							adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=36 && tilf<=61&&!storeBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
@@ -66,16 +72,10 @@ public class KodeGen {
 			if(tilf>=10 && tilf<=35)smaaBogstaver=true;
 			if(tilf>=36 && tilf<=61)storeBogstaver=true;
 			if(tilf>=62 && tilf<=68)tegn=true;
+			
+			
 		}
-	}
-	/**
-	 * 
-	 * @return Genererer et tilfaeldigt kodeord med DTU's krav for et kodeord.
-	 * @param Indsaet hvor langt du oensker kodeordet skal vaere
-	 * 
-	 */
-	public String getTilfAdgangskode(int kodeLaengde){
-		kodeGen(kodeLaengde);
 		return adgangskode;
 	}
 }
+
