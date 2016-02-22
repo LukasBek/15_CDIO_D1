@@ -7,7 +7,7 @@ import funktionalitet.Funktionalitet;
 public class ProgramController {
 
 	private Scanner sc;
-	private Funktionalitet f;
+	private Funktionalitet f = new Funktionalitet();
 
 	int valg;
 	int ID;
@@ -15,9 +15,8 @@ public class ProgramController {
 	boolean operatørMenu = true;
 	boolean sysAdminMenu = true;
 
-	public ProgramController(Scanner sc, Funktionalitet f) {
+	public ProgramController(Scanner sc) {
 		this.sc=sc;
-		this.f=f;
 	}
 
 	public void valg(int valg){

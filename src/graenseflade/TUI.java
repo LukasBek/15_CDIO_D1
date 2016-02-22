@@ -12,9 +12,9 @@ public class TUI {
 
 	Scanner sc = new Scanner(System.in);
 
-	ProgramController lC = new ProgramController(sc, f);
+	ProgramController lC = new ProgramController(sc);
 
-	public TUI(Funktionalitet f){
+	public TUI(){
 
 		while (true){
 			System.out.println(

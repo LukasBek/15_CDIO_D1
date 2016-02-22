@@ -103,13 +103,13 @@ ArrayList<op> opArray = new ArrayList<op>();
 		private int oprId;
 		private int admin;
 		private String oprNavn;
-		private String ini;
+		private String adgangskode;
 		private String cpr;
 		
-		private op(int oprId, String oprNavn, String ini, String cpr, int admin){
+		private op(int oprId, String oprNavn, String adgangskode, String cpr, int admin){
 		
 			this.cpr = cpr;
-			this.ini = ini;
+			this.adgangskode = adgangskode;
 			this.oprNavn = oprNavn;
 			this.oprId = oprId;
 			this.admin = admin;
@@ -128,10 +128,10 @@ ArrayList<op> opArray = new ArrayList<op>();
 			this.oprNavn = oprNavn;
 		}
 		private String getIni() {
-			return ini;
+			return adgangskode;
 		}
 		private void setIni(String ini) {
-			this.ini = ini;
+			this.adgangskode = ini;
 		}
 		private String getCpr() {
 			return cpr;

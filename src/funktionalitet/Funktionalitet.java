@@ -4,9 +4,9 @@ import data.Operatoer;
 
 public class Funktionalitet implements IFunktionalitet {
 
-	private Operatoer o;
+	private Operatoer o = new Operatoer();
 
-	public Funktionalitet(Operatoer o) {
+	public Funktionalitet() {
 		this.o = o;
 	}
 
