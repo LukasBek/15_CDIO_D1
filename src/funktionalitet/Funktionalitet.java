@@ -1,14 +1,14 @@
 package funktionalitet;
 
-import data.OP_Data;
+import data.Operatoer;
 
 public class Funktionalitet implements IFunktionalitet {
 
-	private OP_Data oD;
+	private Operatoer o;
 
-	public Funktionalitet(OP_Data OP_Data) {
+	public Funktionalitet(Operatoer o) {
 
-		this.oD = OP_Data;
+		this.o = o;
 
 	}
 
@@ -22,12 +22,12 @@ public class Funktionalitet implements IFunktionalitet {
 		int opID = ID;
 		int adminCheck = admin;
 		String adgangskode = pass;
-		int OperatørAntal = oD.getOperatoerArrayLaengde()-1;
+		int OperatørAntal = o.getOperatoerArrayLaengde()-1;
 		for(int i = 0; i < OperatørAntal; i++){
-			if (opID == oD.getOprId(i)){
-				if(adgangskode == oD.getAdgangskode(i)){
+			if (opID == o.getOprId(i)){
+				if(adgangskode == o.getAdgangskode(i)){
 					if(adminCheck == 2){
-						if(oD.getAdminStatus(i) == 2){
+						if(o.getAdminStatus(i) == 2){
 							return true;
 						}break;
 					}return true;
@@ -38,21 +38,6 @@ public class Funktionalitet implements IFunktionalitet {
 		}
 		return false;
 	}
-
-	public void ThisDoStuff(int index){
-
-		oD.getCpr(index);
-		oD.getIni(index);
-		oD.getOprNavn(index);
-		oD.getAdgangskode(index);
-		oD.getOprId(index);
-
-	}
-
-
-
-
-
 
 	public void nettoVægt() {
 		// TODO Auto-generated method stub

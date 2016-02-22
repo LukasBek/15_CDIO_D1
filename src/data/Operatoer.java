@@ -2,7 +2,7 @@ package data;
 
 import java.util.ArrayList;
 
-public class Operator {
+public class Operatoer {
 
 ArrayList<op> opArray = new ArrayList<op>();
 	
@@ -13,8 +13,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter id'et på et operator objekt
-	 * @param index : Placeringen i Array Listen metoden bliver kørt
+	 * Soetter id'et pï¿½ et operator objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kï¿½rt
 	 * @param oprId Den id man vil bruge
 	 */
 	public void setOprId(int index, int oprId){
@@ -38,8 +38,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter navnet på et operator objekt
-	 * @param index : Placeringen i Array Listen metoden bliver kørt
+	 * Soetter navnet pï¿½ et operator objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kï¿½rt
 	 * @param oprNavn Navnet der skal bruges
 	 */
 	public void setOprNavn(int index, String oprNavn) {
@@ -55,8 +55,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter ini på et givent operator objekt
-	 * @param index  : Placeringen i Array Listen metoden bliver kørt
+	 * Soetter ini pï¿½ et givent operator objekt
+	 * @param index  : Placeringen i Array Listen metoden bliver kï¿½rt
 	 * @param ini : ini
 	 */
 	public void setIni(int index, String ini){
@@ -80,8 +80,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter adgangskoden på et operator objekt
-	 * @param index : Placeringen i Array Listen metoden bliver kørt
+	 * Soetter adgangskoden pï¿½ et operator objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kï¿½rt
 	 * @param adgangskode Adgangskoden man vil bruge
 	 */
 	public void setAdgangskode(int index, String adgangskode){
@@ -89,8 +89,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * For at få admin status af det enkelte operatør objekt
-	 * @param index : Placeringen i Array Listen metoden bliver kørt
+	 * For at fï¿½ admin status af det enkelte operatï¿½r objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kï¿½rt
 	 * @return Adminstatus
 	 */
 	public int getAdminStatus(int index){
@@ -99,10 +99,10 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * For at få mængden af operatør objekter der er i arraylisten
-	 * @return Størrelsen på Arraylisten
+	 * For at fï¿½ mï¿½ngden af operatï¿½r objekter der er i arraylisten
+	 * @return Stï¿½rrelsen pï¿½ Arraylisten
 	 */
-	public int getOperatoerArrayLoengde(){
+	public int getOperatoerArrayLaengde(){
 		return opArray.size();
 		
 	}
