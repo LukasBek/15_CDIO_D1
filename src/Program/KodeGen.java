@@ -33,7 +33,7 @@ public class KodeGen {
 		karakterer.add("=");
 	}
 	//tal starter ved index 		0-9
-	//sm� bogstaver ved index 		10-35
+	//smaa bogstaver ved index 		10-35
 	//store bogstaver ved index 	36-61
 	//tegn ved index 				62-68
 
@@ -45,7 +45,7 @@ public class KodeGen {
 		this.kodeLaengde = kodeLaengde;
 
 		while(adgangskode.length()<kodeLaengde){
-			//2. (se 1. l�ngere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
+			//2. (se 1. laengere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
 			if(smaaBogstaver && storeBogstaver && tal && tegn){
 				smaaBogstaver=false;
 				storeBogstaver=false;
@@ -55,7 +55,7 @@ public class KodeGen {
 			//Generer et tilfaeldigt tal som bruges til arrayet.
 			tilf = (int) (Math.random()*69);
 			
-			//Indsaetter v�rdien i koden hvis den er whitelisted.
+			//Indsaetter vaerdien i koden hvis den er whitelisted.
 			if(tilf<=9&&!tal)							adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=36 && tilf<=61&&!storeBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
@@ -70,8 +70,8 @@ public class KodeGen {
 	}
 	/**
 	 * 
-	 * @return Genererer et tilf�ldigt kodeord med DTU's krav for et kodeord.
-	 * @param Indsaet hvor langt du �nsker kodeordet skal v�re
+	 * @return Genererer et tilfaeldigt kodeord med DTU's krav for et kodeord.
+	 * @param Indsaet hvor langt du oensker kodeordet skal vaere
 	 * 
 	 */
 	public String getTilfAdgangskode(int kodeLaengde){
