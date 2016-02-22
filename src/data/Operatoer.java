@@ -2,7 +2,7 @@ package data;
 
 import java.util.ArrayList;
 
-public class Operatoer {
+public class Operatoer implements IOperatoer{
 
 ArrayList<op> opArray = new ArrayList<op>();
 
