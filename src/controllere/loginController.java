@@ -19,20 +19,26 @@ public class loginController {
 	public void valg(int valg){
 		this.valg = valg;
 		
+		//Operatør login
 		if (valg == 1){
 			System.out.println("Indtast ID: ");
 			int ID = sc.nextInt();
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.nextLine();
-			f.tjekOPLogin(ID, kode);
-			
-//			if()
+			f.tjekLogin(ID, kode, 1);
+
 		}
 		if (valg == 2){
-			
+			System.out.println("Indtast ID: ");
+			int ID = sc.nextInt();
+			System.out.println("Indtast Adgangskode: ");
+			String kode = sc.nextLine();
+			f.tjekLogin(ID, kode, 2);
 		}
 		else{
-			
+			System.out.println("Du skal vælge noget mellem 1 og 2: ");
+			int nytValg = sc.nextInt();
+			valg(nytValg);
 		}
 	}
 }

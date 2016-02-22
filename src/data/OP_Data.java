@@ -7,7 +7,7 @@ public class OP_Data {
 	ArrayList<operatoer> opArray = new ArrayList<operatoer>();
 	
 	
-	public void addOp(int oprId, String oprNavn, String ini, String cpr, boolean admin, String Adgangskode){
+	public void addOp(int oprId, String oprNavn, String ini, String cpr, int admin, String Adgangskode){
 		
 		opArray.add(new operatoer(oprId, oprNavn, ini, cpr, admin, Adgangskode));
 
@@ -53,7 +53,13 @@ public class OP_Data {
 		return (opArray.get(index)).getOprId();
 	}
 	
+	public int getAdminStatus(int index){
+		return (opArray.get(index)).getAdmin();
+		
+	}
 	
-	
+	public int getOperatørArrayLængde(){
+		return opArray.size();
+	}
 
 }

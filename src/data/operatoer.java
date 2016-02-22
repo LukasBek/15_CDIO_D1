@@ -3,18 +3,20 @@ package data;
 public class operatoer {
 
 	private int oprId;
+	private int admin;
 	private String oprNavn;
 	private String ini;
 	private String cpr;
 	private String Adgangskode;
 	
-	public operatoer(int oprId, String oprNavn, String ini, String cpr, boolean admin, String Adgangskode){
+	public operatoer(int oprId, String oprNavn, String ini, String cpr, int admin, String Adgangskode){
 	
 		this.cpr = cpr;
 		this.ini = ini;
 		this.oprNavn = oprNavn;
 		this.oprId = oprId;
 		this.Adgangskode = Adgangskode;
+		this.admin = admin;
 	}
 	
 	public int getOprId() {
@@ -47,8 +49,10 @@ public class operatoer {
 		
 	}
 	public void setAdgangskode(String adgangskode){
-		
-
+	}
+	
+	public int getAdmin(){
+		return admin;
 	}
 }
 

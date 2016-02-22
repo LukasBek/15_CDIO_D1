@@ -2,5 +2,5 @@ package funktionalitet;
 
 public interface IFunktionalitet {
 
-	boolean tjekOPLogin(int ID, String pass);
+	boolean tjekLogin(int ID, String pass, int admin);
 }
