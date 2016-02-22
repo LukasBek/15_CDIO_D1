@@ -6,14 +6,18 @@ public class Vaegt {
 	
 ArrayList<v> vArray = new ArrayList<v>();
 	
-	public void addMaaling(double vaegt, int Id){
+	public void addMaaling(int maalingsID, double vaegt, int Id){
 		
-		vArray.add(new v(vaegt, Id));
+		vArray.add(new v(maalingsID, vaegt, Id));
 
 	}
 	
+	public double getMaalingsID(int index){
+		return (vArray.get(index)).getMaalingsID();
+	}
+	
 	/**
-	 * Returnere en vaegt på et et givent sted i arrayet
+	 * Returnere en vaegt pï¿½ et et givent sted i arrayet
 	 * @param index : Placeringen i Array Listen metoden bliver kaldt
 	 * @return Vaegten af maalingen
 	 */
@@ -35,26 +39,31 @@ ArrayList<v> vArray = new ArrayList<v>();
 	public int getVaegtArratLaengde(){
 		return vArray.size();
 	}
-	/**
-	 * Fjerner en maaling fra arrayet
-	 * @param index : Placeringen i Array Listen metoden bliver kaldt
-	 */
-	public void fjernMaaling(int index){
-		vArray.remove(index);
+	
+	public String toString(int index) {
+		return getMaalingsID(index) + " : " + getId(index) + " : " + getVaegt(index);
+		
 	}
+	
 
 	private class v{
 		
 		private double vaegt;
 		private int Id;
+		private int maalingsID;
 		
-		private v(double vaegt, int Id){
+		private v(int maalingsID, double vaegt, int Id){
 			
 			this.vaegt = vaegt;
 			this.Id = Id;
+			this.maalingsID = maalingsID;
 			
 		}
 		
+		public double getMaalingsID() {
+			return maalingsID;
+		}
+
 		private double getVaerdi(){
 			return vaegt;
 		}

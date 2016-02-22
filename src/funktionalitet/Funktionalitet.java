@@ -1,13 +1,20 @@
 package funktionalitet;
 
+import java.util.Arrays;
+
 import data.Operatoer;
+import data.Vaegt;
 
 public class Funktionalitet implements IFunktionalitet {
 
-	private Operatoer o = new Operatoer();
+	private Vaegt v;
+	private Operatoer o;
+	
+	private int maalingsID = 1;
 
-	public Funktionalitet() {
+	public Funktionalitet(Operatoer o, Vaegt v) {
 		this.o = o;
+		this.v = v;
 	}
 
 	@Override
@@ -32,12 +39,16 @@ public class Funktionalitet implements IFunktionalitet {
 		return false;
 	}
 
-	public int nettoVaegt(int iD, double brutto, double tarra) {
+	@Override
+	public double nettoVaegt(int iD, double brutto, double tarra) {
 		
-		double nettovaegt;
-		return -1;
+		double nettovaegt = brutto - tarra;
+		v.addMaaling(maalingsID, nettovaegt, iD);
+		maalingsID++;
+		return nettovaegt;
 	}
 	
+	@Override
 	public void setKode(int iD, String kode) {	
 		
 		int index = -1;		
@@ -51,6 +62,7 @@ public class Funktionalitet implements IFunktionalitet {
 		}	
 	}
 
+	@Override
 	public void createOperatoer(String oprNavn, String cpr, int admin) {		
 		
 		int oprId = 100;	
@@ -58,6 +70,7 @@ public class Funktionalitet implements IFunktionalitet {
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
 	}
 
+	@Override
 	public void deleteOperatoer(int iD) {	
 		
 		int index = -1;	
@@ -72,20 +85,15 @@ public class Funktionalitet implements IFunktionalitet {
 		}
 	}
 
+	@Override
 	public void showOperatoer(int iD) {
 		// TODO Auto-generated method stub		
 	}
-	
-	
-	
-	
 
-
-
-
-
-
-
-
-
+	@Override
+	public void getMaalinger(){
+		for (int i = 0; i < v.getVaegtArratLaengde(); i++){
+			v.toString(i);
+		}
+	}
 }

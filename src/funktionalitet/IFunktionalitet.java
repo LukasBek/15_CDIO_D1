@@ -4,7 +4,7 @@ public interface IFunktionalitet {
 
 	boolean tjekLogin(int ID, String pass, int admin);
 
-	int nettoVaegt(int ID, double brutto, double tarra);
+	double nettoVaegt(int ID, double brutto, double tarra);
 
 	void setKode(int ID, String kode);
 
@@ -13,4 +13,6 @@ public interface IFunktionalitet {
 	void deleteOperatoer(int iD);
 
 	void showOperatoer(int iD);
+
+	void getMaalinger();
 }
