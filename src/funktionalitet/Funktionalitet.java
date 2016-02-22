@@ -32,9 +32,10 @@ public class Funktionalitet implements IFunktionalitet {
 		return false;
 	}
 
-	public void nettoVægt(int iD, int brutto, int tarra) {
-		// TODO Auto-generated method stub
+	public int nettoVaegt(int iD, double brutto, double tarra) {
 		
+		double nettovaegt;
+		return -1;
 	}
 	
 	public void setKode(int iD, String kode) {	

@@ -112,11 +112,11 @@ public class ProgramController {
 			valg = sc.nextInt();
 
 			if (valg == 1){
-				System.out.println("Indtast bruttovægt: ");
-				int brutto = sc.nextInt();
-				System.out.println("Indtast TARRA (emballagevægt): ");
-				int tarra = sc.nextInt();
-				f.nettoVægt(ID, brutto, tarra);
+				System.out.println("Indtast tarravægt (kg): ");
+				double tarra = sc.nextDouble();
+				System.out.println("Indtast bruttovægt (kg): ");
+				double brutto = sc.nextDouble();
+				f.nettoVaegt(ID, brutto, tarra);
 			}
 			else if (valg == 2){
 				System.out.println("Indtast din gamle adganskode: ");
