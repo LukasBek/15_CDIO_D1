@@ -41,14 +41,12 @@ public class operatoer {
 		return cpr;
 	}
 	
-	public void setCpr(String cpr) {
-		
-	}
 	public String getAdgangskode() {
 		return Adgangskode;
 		
 	}
 	public void setAdgangskode(String adgangskode){
+		this.Adgangskode = adgangskode;
 	}
 	
 	public int getAdmin(){
