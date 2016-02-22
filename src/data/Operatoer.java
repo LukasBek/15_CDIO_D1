@@ -6,9 +6,9 @@ public class Operatoer {
 
 ArrayList<op> opArray = new ArrayList<op>();
 	
-	public void addOp(int oprId, String oprNavn, String ini, String cpr, int admin, String Adgangskode){
+	public void addOp(int oprId, String oprNavn, String adgangskode, String cpr, int admin){
 		
-		opArray.add(new op(oprId, oprNavn, ini, cpr, admin, Adgangskode));
+		opArray.add(new op(oprId, oprNavn, adgangskode, cpr, admin));
 
 	}
 	
@@ -50,7 +50,7 @@ ArrayList<op> opArray = new ArrayList<op>();
 	 * @param index : the place in the array list the method will be called
 	 * @return The Ini (?) of the operator
 	 */
-	public String getIni(int index){
+	public String getAdgangskode(int index){
 		return (opArray.get(index)).getIni();
 	}
 	
@@ -59,7 +59,7 @@ ArrayList<op> opArray = new ArrayList<op>();
 	 * @param index  : Placeringen i Array Listen metoden bliver kaldt
 	 * @param ini : ini
 	 */
-	public void setIni(int index, String ini){
+	public void setAdgangskode(int index, String ini){
 		(opArray.get(index)).setIni(ini);
 	}
 	
@@ -69,23 +69,6 @@ ArrayList<op> opArray = new ArrayList<op>();
 	 */
 	public String getCpr(int index){
 		return (opArray.get(index)).getCpr();
-	}
-	
-	/**
-	 * @param index : the place in the array list the method will be called
-	 * @return The Password of the operator
-	 */
-	public String getAdgangskode(int index){	
-		return (opArray.get(index)).getAdgangskode();
-	}
-	
-	/**
-	 * Soetter adgangskoden paa et operator objekt
-	 * @param index : Placeringen i Array Listen metoden bliver kaldt
-	 * @param adgangskode Adgangskoden man vil bruge
-	 */
-	public void setAdgangskode(int index, String adgangskode){
-		(opArray.get(index)).setAdgangskode(adgangskode);;
 	}
 	
 	/**
@@ -122,15 +105,13 @@ ArrayList<op> opArray = new ArrayList<op>();
 		private String oprNavn;
 		private String ini;
 		private String cpr;
-		private String Adgangskode;
 		
-		private op(int oprId, String oprNavn, String ini, String cpr, int admin, String Adgangskode){
+		private op(int oprId, String oprNavn, String ini, String cpr, int admin){
 		
 			this.cpr = cpr;
 			this.ini = ini;
 			this.oprNavn = oprNavn;
 			this.oprId = oprId;
-			this.Adgangskode = Adgangskode;
 			this.admin = admin;
 		}
 		
@@ -154,12 +135,6 @@ ArrayList<op> opArray = new ArrayList<op>();
 		}
 		private String getCpr() {
 			return cpr;
-		}
-		private String getAdgangskode() {
-			return Adgangskode;	
-		}
-		private void setAdgangskode(String adgangskode){
-			this.Adgangskode = adgangskode;
 		}
 		private int getAdmin(){
 			return admin;

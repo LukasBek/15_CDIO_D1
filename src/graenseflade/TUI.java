@@ -14,7 +14,6 @@ public class TUI {
 
 	ProgramController lC = new ProgramController(sc, f);
 
-
 	public TUI(Funktionalitet f){
 
 		while (true){

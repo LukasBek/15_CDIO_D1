@@ -38,10 +38,13 @@ public class ProgramController {
 
 		}
 		if (valg == 2){
+			String kode;
 			System.out.println("Indtast ID: ");
 			ID = sc.nextInt();
+			
 			System.out.println("Indtast Adgangskode: ");
-			String kode = sc.nextLine();
+			kode = sc.next();
+			
 			if(f.tjekLogin(ID, kode, 2)){
 				sysAdminMenu();
 			}
