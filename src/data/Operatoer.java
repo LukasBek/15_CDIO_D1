@@ -13,8 +13,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter id'et p� et operator objekt
-	 * @param index : Placeringen i Array Listen metoden bliver k�rt
+	 * Soetter id'et paa et operator objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kaldt
 	 * @param oprId Den id man vil bruge
 	 */
 	public void setOprId(int index, int oprId){
@@ -38,8 +38,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter navnet p� et operator objekt
-	 * @param index : Placeringen i Array Listen metoden bliver k�rt
+	 * Soetter navnet paa et operator objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kaldt
 	 * @param oprNavn Navnet der skal bruges
 	 */
 	public void setOprNavn(int index, String oprNavn) {
@@ -55,8 +55,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter ini p� et givent operator objekt
-	 * @param index  : Placeringen i Array Listen metoden bliver k�rt
+	 * Soetter ini paa et givent operator objekt
+	 * @param index  : Placeringen i Array Listen metoden bliver kaldt
 	 * @param ini : ini
 	 */
 	public void setIni(int index, String ini){
@@ -80,8 +80,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter adgangskoden p� et operator objekt
-	 * @param index : Placeringen i Array Listen metoden bliver k�rt
+	 * Soetter adgangskoden paa et operator objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kaldt
 	 * @param adgangskode Adgangskoden man vil bruge
 	 */
 	public void setAdgangskode(int index, String adgangskode){
@@ -89,8 +89,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * For at f� admin status af det enkelte operat�r objekt
-	 * @param index : Placeringen i Array Listen metoden bliver k�rt
+	 * For at faa admin status af det enkelte operatoer objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kaldt
 	 * @return Adminstatus
 	 */
 	public int getAdminStatus(int index){
@@ -99,12 +99,19 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * For at f� m�ngden af operat�r objekter der er i arraylisten
-	 * @return St�rrelsen p� Arraylisten
+	 * For at faa maengden af operatoer objekter der er i arraylisten
+	 * @return Stoerrelsen paa Arraylisten
 	 */
 	public int getOperatoerArrayLaengde(){
 		return opArray.size();
 		
+	}
+	/**
+	 * Fjerner en operatoer fra arraylisten
+	 * @param index : Placeringen i Array Listen metoden bliver kaldt
+	 */
+	public void fjernOperatoer(int index){
+		opArray.remove(index);
 	}
 
 	
