@@ -76,9 +76,13 @@ public class Funktionalitet implements IFunktionalitet {
 
 
 
-	public void createOperatoer(String navn, String cpr, int admin) {
-		// TODO Auto-generated method stub
+	public void createOperatoer(String oprNavn, String cpr, int admin) {
 		
+		int oprId = 100;
+		String ini = "Stuff";
+		String Adgangskode = "TankeYouComeAgain";
+		
+		o.addOp(oprId, oprNavn, ini, cpr, admin, Adgangskode);
 	}
 
 
@@ -87,8 +91,25 @@ public class Funktionalitet implements IFunktionalitet {
 
 
 	public void deleteOperatoer(int iD) {
-		// TODO Auto-generated method stub
 		
+		int index = -1;
+		
+		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){
+			
+			if (iD == o.getOprId(i)){
+				
+				index = i;
+				
+			}
+			
+		}
+		
+		if (index != -1){
+			
+			o.fjernOperatoer(index);
+			
+		}
+
 	}
 
 
