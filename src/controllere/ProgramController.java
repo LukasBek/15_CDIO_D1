@@ -54,9 +54,11 @@ public class ProgramController {
 	}
 
 	private void sysAdminMenu() {
+
+		System.out.println("Velkommen sysAdmin");
+		System.out.println("----------------------------------------");
+
 		while (operatørMenu){
-			System.out.println("Velkommen sysAdmin");
-			System.out.println("----------------------------------------");
 			System.out.println("Tast 1 for at oprette en ny operatør");
 			System.out.println("Tast 2 for at slette en operatør");
 			System.out.println("Tast 3 for at ændre i en operatør");
@@ -64,28 +66,31 @@ public class ProgramController {
 			System.out.println("Tast 5 for at logge ud");
 			valg = sc.nextInt();
 			if (valg == 1){
-				
+				System.out.println("")
 			}
 			else if (valg == 2){
-				
+
 			}
 			else if (valg == 3){
-				
+
 			}
 			else if (valg == 4){
-				
+
 			}
 			else if (valg == 5){
-				
+
+			}else{
+				System.out.println("Ugyldigt valg, prøv igen");
 			}
 		}
 	}
 
 	private void operatørMenu(int ID) {
 
+		System.out.println("Velkommen operatør");
+		System.out.println("------------------------------------------");
+
 		while (operatørMenu){
-			System.out.println("Velkommen operatør");
-			System.out.println("------------------------------------------");
 			System.out.println("Tast 1 for at bruge nettovægtberegneren");
 			System.out.println("Tast 2 for at skifte adgangskode");
 			System.out.println("Tast 3 for at logge ud");
@@ -95,10 +100,15 @@ public class ProgramController {
 				f.nettoVægt(ID);
 			}
 			else if (valg == 2){
-				System.out.println("Indtast din ønskede adgangskode her: ");
+				System.out.println("Indtast din gamle adganskode: ");
 				String kode = sc.nextLine();
-				f.setKode(ID, kode);
-				operatørMenu(ID);
+				if(f.tjekLogin(ID, kode, 1)){
+					System.out.println("Indtast din ønskede adgangskode her: ");
+					kode = sc.nextLine();
+					f.setKode(ID, kode);	
+				}else{
+					System.out.println("Forkert adganskode");	
+				}
 			}
 			else if (valg == 3){
 				operatørMenu = false;
