@@ -124,7 +124,7 @@ ArrayList<op> opArray = new ArrayList<op>();
 		private String cpr;
 		private String Adgangskode;
 		
-		public op(int oprId, String oprNavn, String ini, String cpr, int admin, String Adgangskode){
+		private op(int oprId, String oprNavn, String ini, String cpr, int admin, String Adgangskode){
 		
 			this.cpr = cpr;
 			this.ini = ini;
@@ -134,34 +134,34 @@ ArrayList<op> opArray = new ArrayList<op>();
 			this.admin = admin;
 		}
 		
-		public int getOprId() {
+		private int getOprId() {
 			return oprId;
 		}
-		public void setOprId(int oprId) {
+		private void setOprId(int oprId) {
 			this.oprId = oprId;
 		}
-		public String getOprNavn() {
+		private String getOprNavn() {
 			return oprNavn;
 		}
-		public void setOprNavn(String oprNavn) {
+		private void setOprNavn(String oprNavn) {
 			this.oprNavn = oprNavn;
 		}
-		public String getIni() {
+		private String getIni() {
 			return ini;
 		}
-		public void setIni(String ini) {
+		private void setIni(String ini) {
 			this.ini = ini;
 		}
-		public String getCpr() {
+		private String getCpr() {
 			return cpr;
 		}
-		public String getAdgangskode() {
+		private String getAdgangskode() {
 			return Adgangskode;	
 		}
-		public void setAdgangskode(String adgangskode){
+		private void setAdgangskode(String adgangskode){
 			this.Adgangskode = adgangskode;
 		}
-		public int getAdmin(){
+		private int getAdmin(){
 			return admin;
 		}
 	}
