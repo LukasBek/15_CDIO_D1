@@ -54,11 +54,11 @@ public class Adgangskode {
 		//Opretter arrayet
 		array();
 
-		//Hvor langt skal adgangskode v�re? (krav paa min 6)
+		//Hvor langt skal adgangskode vaere? (krav paa min 6)
 		this.kodeLaengde = kodeLaengde;
 
 		while(adgangskode.length()<kodeLaengde){
-			//2. (se 1. l�ngere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
+			//2. (se 1. laengere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
 			if(smaaBogstaver && storeBogstaver && tal && tegn){
 				smaaBogstaver=false;
 				storeBogstaver=false;
@@ -68,7 +68,7 @@ public class Adgangskode {
 			//Generer et tilfaeldigt tal som bruges til arrayet.
 			tilf = (int) (Math.random()*69);
 
-			//Indsaetter v�rdien i koden hvis den er whitelisted.
+			//Indsaetter vaerdien i koden hvis den er whitelisted.
 			if(tilf<=9&&!tal)							adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
 			if(tilf>=36 && tilf<=61&&!storeBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
