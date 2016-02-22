@@ -68,23 +68,29 @@ public class ProgramController {
 			if (valg == 1){
 				System.out.println("Indtast navn: ");
 				String navn = sc.nextLine();
-				System.out.println("Indtast navn: ");
+				System.out.println("Indtast cpr-nummer: ");
 				String cpr = sc.nextLine();
+				System.out.println("Er det en administrator? (tast 1 hvis nej, 2 hvis ja)");
 				int admin = sc.nextInt();
 				f.createOperatoer(navn, cpr, admin);
-				
+				System.out.println("En ny operator er nu blevet oprettet.");
 			}
 			else if (valg == 2){
+				System.out.println("Indtast ID for den operatør du ønsker at slette"
+						+ "(Advarsel - det er ikke muligt at få operatøren tilbage: ");
+				ID = sc.nextInt();
 				f.deleteOperatoer(ID);
 			}
 			else if (valg == 3){
-				
+				//TODO implement this...
 			}
 			else if (valg == 4){
+				System.out.println("Indtast ID for den operatør du ønsker at se: ");
+				ID = sc.nextInt();
 				f.showOperatoer(ID);
 			}
 			else if (valg == 5){
-
+				operatørMenu = false;
 			}else{
 				System.out.println("Ugyldigt valg, prøv igen");
 			}
