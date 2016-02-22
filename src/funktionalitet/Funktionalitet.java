@@ -39,7 +39,7 @@ public class Funktionalitet implements IFunktionalitet {
 		return false;
 	}
 
-	public void nettoVægt() {
+	public void nettoVægt(int iD) {
 		// TODO Auto-generated method stub
 		
 	}
