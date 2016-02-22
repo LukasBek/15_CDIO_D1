@@ -1,4 +1,4 @@
-package Program;
+package funktionalitet;
 
 import java.util.ArrayList;
 

@@ -9,6 +9,7 @@ public class Funktionalitet implements IFunktionalitet {
 
 	private Vaegt v = new Vaegt();
 	private Operatoer o = new Operatoer();
+	private Adgangskode ak = new Adgangskode();
 	
 	private int maalingsID = 1;
 
@@ -29,17 +30,16 @@ public class Funktionalitet implements IFunktionalitet {
 					if(adminCheck == 2){
 						if(o.getAdminStatus(i) == 2){
 							return true;
-						}break;
+						}
 					} else {
 						return true;
 					}
 				}else{
 					System.out.println("Kodeord ikke accepteret!");
 				}
-			} else {
-				System.out.println("ID ikke fundet");
 			}
 		}
+		System.out.println("Bruger ikke fundet");
 		return false;
 	}
 
@@ -68,10 +68,11 @@ public class Funktionalitet implements IFunktionalitet {
 
 	@Override
 	public void createOperatoer(String oprNavn, String cpr, int admin) {		
-		
+
 		int oprId = 100;	
-		String Adgangskode = "Test1234";		
+		String Adgangskode = ak.getNyKode(6);		
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
+		System.out.println(Adgangskode);
 	}
 
 	@Override
