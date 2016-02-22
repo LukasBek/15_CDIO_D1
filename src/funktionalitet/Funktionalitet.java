@@ -79,10 +79,10 @@ public class Funktionalitet implements IFunktionalitet {
 	public void createOperatoer(String oprNavn, String cpr, int admin) {
 		
 		int oprId = 100;
-		String ini = "Stuff";
+	
 		String Adgangskode = "TankeYouComeAgain";
 		
-		o.addOp(oprId, oprNavn, ini, cpr, admin, Adgangskode);
+		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
 	}
 
 
