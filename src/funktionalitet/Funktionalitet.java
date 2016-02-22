@@ -22,7 +22,7 @@ public class Funktionalitet implements IFunktionalitet {
 		int opID = ID;
 		int adminCheck = admin;
 		String adgangskode = pass;
-		int OperatørAntal = oD.getOperatørArrayLængde()-1;
+		int OperatørAntal = oD.getOperatoerArrayLaengde()-1;
 		for(int i = 0; i < OperatørAntal; i++){
 			if (opID == oD.getOprId(i)){
 				if(adgangskode == oD.getAdgangskode(i)){
@@ -47,6 +47,26 @@ public class Funktionalitet implements IFunktionalitet {
 		oD.getAdgangskode(index);
 		oD.getOprId(index);
 
+	}
+
+
+
+
+
+
+	public void nettoVægt() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+	public void setKode(int iD, String kode) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

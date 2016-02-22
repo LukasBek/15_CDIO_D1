@@ -53,8 +53,8 @@ public class OP_Data {
 		return (opArray.get(index)).getOprId();
 	}
 	/**
-	 * For at få admin status af det enkelte operatør objekt
-	 * @param index : Placeringen i Array Listen metoden bliver kørt
+	 * For at fï¿½ admin status af det enkelte operatï¿½r objekt
+	 * @param index : Placeringen i Array Listen metoden bliver kï¿½rt
 	 * @return Adminstatus
 	 */
 	public int getAdminStatus(int index){
@@ -62,8 +62,8 @@ public class OP_Data {
 		
 	}
 	/**
-	 * For at få mængden af operatør objekter der er i arraylisten
-	 * @return Størrelsen på Arraylisten
+	 * For at fï¿½ mï¿½ngden af operatï¿½r objekter der er i arraylisten
+	 * @return Stï¿½rrelsen pï¿½ Arraylisten
 	 */
 	public int getOperatoerArrayLoengde(){
 		return opArray.size();

@@ -10,6 +10,7 @@ public class ProgramController {
 	private Funktionalitet f;
 	
 	int valg;
+	int ID;
 	
 	public ProgramController(Scanner sc, Funktionalitet f) {
 		this.sc=sc;
@@ -22,11 +23,11 @@ public class ProgramController {
 		//Operatør login
 		if (valg == 1){
 			System.out.println("Indtast ID: ");
-			int ID = sc.nextInt();
+			ID = sc.nextInt();
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.nextLine();
 			if(f.tjekLogin(ID, kode, 1)){
-				operatørMenu();
+				operatørMenu(ID);
 			}else{
 				
 			}
@@ -35,7 +36,7 @@ public class ProgramController {
 		}
 		if (valg == 2){
 			System.out.println("Indtast ID: ");
-			int ID = sc.nextInt();
+			ID = sc.nextInt();
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.nextLine();
 			if(f.tjekLogin(ID, kode, 2)){
@@ -50,12 +51,27 @@ public class ProgramController {
 	}
 
 	private void sysAdminMenu() {
-		System.out.println("Velkommen operatør")
 		
 	}
 
-	private void operatørMenu() {
-		// TODO Auto-generated method stub
+	private void operatørMenu(int ID) {
+		System.out.println("Velkommen operatør");
+		System.out.println("------------------------------------------");
+		System.out.println("Tast 1 for at bruge nettovægtberegneren"
+				+ ""
+				+ "Hvad sker der her");
+		System.out.println("Tast 2 for at skifte adgangskode");
+		System.out.println("Tast 3 for at logge ud");
+		valg = sc.nextInt();
 		
+		if (valg == 1){
+			f.nettoVægt();
+		}
+		if (valg == 2){
+			System.out.println("Indtast din ønskede adgangskode her: ");
+			String kode = sc.nextLine();
+			f.setKode(ID, kode);
+			operatørMenu(ID);
+		}
 	}
 }
