@@ -7,14 +7,13 @@ import data.Vaegt;
 
 public class Funktionalitet implements IFunktionalitet {
 
-	private Vaegt v;
-	private Operatoer o;
+	private Vaegt v = new Vaegt();
+	private Operatoer o = new Operatoer();
 	
 	private int maalingsID = 1;
 
-	public Funktionalitet(Operatoer o, Vaegt v) {
-		this.o = o;
-		this.v = v;
+	public Funktionalitet() {
+
 	}
 
 	@Override
