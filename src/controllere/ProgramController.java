@@ -66,16 +66,22 @@ public class ProgramController {
 			System.out.println("Tast 5 for at logge ud");
 			valg = sc.nextInt();
 			if (valg == 1){
-				System.out.println("")
+				System.out.println("Indtast navn: ");
+				String navn = sc.nextLine();
+				System.out.println("Indtast navn: ");
+				String cpr = sc.nextLine();
+				int admin = sc.nextInt();
+				f.createOperatoer(navn, cpr, admin);
+				
 			}
 			else if (valg == 2){
-
+				f.deleteOperatoer(ID);
 			}
 			else if (valg == 3){
-
+				
 			}
 			else if (valg == 4){
-
+				f.showOperatoer(ID);
 			}
 			else if (valg == 5){
 

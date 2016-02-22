@@ -70,6 +70,36 @@ public class Funktionalitet implements IFunktionalitet {
 		}
 		
 	}
+
+
+
+
+
+
+	public void createOperatoer(String navn, String cpr, int admin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+	public void deleteOperatoer(int iD) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+	public void showOperatoer(int iD) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
