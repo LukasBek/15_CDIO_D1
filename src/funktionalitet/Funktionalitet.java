@@ -50,9 +50,30 @@ public class Funktionalitet implements IFunktionalitet {
 
 
 	public void setKode(int iD, String kode) {
-		// TODO Auto-generated method stub
+		
+		int index = -1;
+		
+		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){
+			
+			if (iD == o.getOprId(i)){
+				
+				index = i;
+				
+			}
+			
+		}
+		
+		if (index != -1){
+			
+			o.setAdgangskode(index, kode);
+			
+		}
 		
 	}
+	
+	
+	
+	
 
 
 
