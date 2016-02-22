@@ -22,18 +22,23 @@ public class Funktionalitet implements IFunktionalitet {
 		int opID = ID;
 		int adminCheck = admin;
 		String adgangskode = pass;
-		int OperatørAntal = o.getOperatoerArrayLaengde()-1;
+		int OperatørAntal = o.getOperatoerArrayLaengde();
+		
 		for(int i = 0; i < OperatørAntal; i++){
 			if (opID == o.getOprId(i)){
-				if(adgangskode == o.getAdgangskode(i)){
+				if(adgangskode.equals(o.getAdgangskode(i))){
 					if(adminCheck == 2){
 						if(o.getAdminStatus(i) == 2){
 							return true;
 						}break;
-					}return true;
+					} else {
+						return true;
+					}
 				}else{
-					
+					System.out.println("Kodeord ikke accepteret!");
 				}
+			} else {
+				System.out.println("ID ikke fundet");
 			}
 		}
 		return false;

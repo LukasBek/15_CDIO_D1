@@ -27,7 +27,7 @@ public class ProgramController {
 			System.out.println("Indtast ID: ");
 			ID = sc.nextInt();
 			System.out.println("Indtast Adgangskode: ");
-			String kode = sc.nextLine();
+			String kode = sc.next();
 			if(f.tjekLogin(ID, kode, 1)){
 				operatørMenu(ID);
 			}else{
@@ -35,8 +35,7 @@ public class ProgramController {
 			}
 
 
-		}
-		if (valg == 2){
+		} else if (valg == 2){
 			String kode;
 			System.out.println("Indtast ID: ");
 			ID = sc.nextInt();
@@ -56,11 +55,11 @@ public class ProgramController {
 	}
 
 	private void sysAdminMenu() {
-
+		sysAdminMenu = true;
 		System.out.println("Velkommen sysAdmin");
 		System.out.println("----------------------------------------");
 
-		while (operatørMenu){
+		while (sysAdminMenu){
 			System.out.println("Tast 1 for at oprette en ny operatør");
 			System.out.println("Tast 2 for at slette en operatør");
 			System.out.println("Tast 3 for at ændre i en operatør");
@@ -69,9 +68,9 @@ public class ProgramController {
 			valg = sc.nextInt();
 			if (valg == 1){
 				System.out.println("Indtast navn: ");
-				String navn = sc.nextLine();
+				String navn = sc.next();
 				System.out.println("Indtast cpr-nummer: ");
-				String cpr = sc.nextLine();
+				String cpr = sc.next();
 				System.out.println("Er det en administrator? (tast 1 hvis nej, 2 hvis ja)");
 				int admin = sc.nextInt();
 				f.createOperatoer(navn, cpr, admin);
@@ -92,7 +91,7 @@ public class ProgramController {
 				f.showOperatoer(ID);
 			}
 			else if (valg == 5){
-				operatørMenu = false;
+				sysAdminMenu = false;
 			}else{
 				System.out.println("Ugyldigt valg, prøv igen");
 			}
@@ -100,7 +99,7 @@ public class ProgramController {
 	}
 
 	private void operatørMenu(int ID) {
-
+		operatørMenu = true;
 		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
 
@@ -119,10 +118,10 @@ public class ProgramController {
 			}
 			else if (valg == 2){
 				System.out.println("Indtast din gamle adganskode: ");
-				String kode = sc.nextLine();
+				String kode = sc.next();
 				if(f.tjekLogin(ID, kode, 1)){
 					System.out.println("Indtast din ønskede adgangskode her: ");
-					kode = sc.nextLine();
+					kode = sc.next();
 					f.setKode(ID, kode);	
 				}else{
 					System.out.println("Forkert adganskode");	

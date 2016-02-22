@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class Operatoer {
 
 ArrayList<op> opArray = new ArrayList<op>();
+
+	public Operatoer(){
+		this.addOp(1, "superBruger", "1aAa1", "2808941999", 2);
+	}
 	
 	public void addOp(int oprId, String oprNavn, String adgangskode, String cpr, int admin){
 		
