@@ -70,7 +70,7 @@ public class Funktionalitet implements IFunktionalitet {
 	public void createOperatoer(String oprNavn, String cpr, int admin) {		
 		
 		int oprId = 100;	
-		String Adgangskode = "TankeYouComeAgain";		
+		String Adgangskode = "Test1234";		
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
 	}
 
