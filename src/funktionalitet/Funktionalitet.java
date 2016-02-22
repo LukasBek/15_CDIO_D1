@@ -7,15 +7,8 @@ public class Funktionalitet implements IFunktionalitet {
 	private Operatoer o;
 
 	public Funktionalitet(Operatoer o) {
-
 		this.o = o;
-
 	}
-
-
-
-
-
 
 	@Override
 	public boolean tjekLogin(int ID, String pass, int admin) {
@@ -39,87 +32,47 @@ public class Funktionalitet implements IFunktionalitet {
 		return false;
 	}
 
-	public void nettoVægt(int iD) {
+	public void nettoVægt(int iD, int brutto, int tarra) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
-
-
-
-	public void setKode(int iD, String kode) {
+	
+	public void setKode(int iD, String kode) {	
 		
-		int index = -1;
-		
-		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){
-			
-			if (iD == o.getOprId(i)){
-				
-				index = i;
-				
-			}
-			
-		}
-		
-		if (index != -1){
-			
-			o.setAdgangskode(index, kode);
-			
-		}
-		
+		int index = -1;		
+		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
+			if (iD == o.getOprId(i)){			
+				index = i;			
+			}		
+		}	
+		if (index != -1){		
+			o.setAdgangskode(index, kode);		
+		}	
 	}
 
-
-
-
-
-
-	public void createOperatoer(String oprNavn, String cpr, int admin) {
+	public void createOperatoer(String oprNavn, String cpr, int admin) {		
 		
-		int oprId = 100;
-	
-		String Adgangskode = "TankeYouComeAgain";
-		
+		int oprId = 100;	
+		String Adgangskode = "TankeYouComeAgain";		
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
 	}
 
-
-
-
-
-
-	public void deleteOperatoer(int iD) {
+	public void deleteOperatoer(int iD) {	
 		
-		int index = -1;
-		
-		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){
-			
-			if (iD == o.getOprId(i)){
-				
-				index = i;
-				
-			}
-			
+		int index = -1;	
+		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
+			if (iD == o.getOprId(i)){			
+				index = i;			
+			}		
 		}
 		
-		if (index != -1){
-			
-			o.fjernOperatoer(index);
-			
+		if (index != -1){		
+			o.fjernOperatoer(index);		
 		}
-
 	}
 
-
-
-
-
-
 	public void showOperatoer(int iD) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 	
 	

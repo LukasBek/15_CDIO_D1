@@ -4,7 +4,7 @@ public interface IFunktionalitet {
 
 	boolean tjekLogin(int ID, String pass, int admin);
 
-	void nettoVægt(int ID);
+	void nettoVægt(int ID, int brutto, int tarra);
 
 	void setKode(int ID, String kode);
 
