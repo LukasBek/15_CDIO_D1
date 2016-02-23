@@ -12,7 +12,7 @@ public class ProgramController {
 	int valg;
 	int ID;
 
-	boolean operatørMenu = true;
+	boolean operatoerMenu = true;
 	boolean sysAdminMenu = true;
 
 	public ProgramController(Scanner sc) {
@@ -29,7 +29,7 @@ public class ProgramController {
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.next();
 			if(f.tjekLogin(ID, kode, 1)){
-				operatørMenu(ID);
+				operatoerMenu(ID);
 			}else{
 
 			}
@@ -99,12 +99,12 @@ public class ProgramController {
 		}
 	}
 
-	private void operatørMenu(int ID) {
-		operatørMenu = true;
+	private void operatoerMenu(int ID) {
+		operatoerMenu = true;
 		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
 
-		while (operatørMenu){
+		while (operatoerMenu){
 			System.out.println("Tast 1 for at bruge nettovægtberegneren");
 			System.out.println("Tast 2 for at skifte adgangskode");
 			System.out.println("Tast 3 for at logge ud");
@@ -129,7 +129,7 @@ public class ProgramController {
 				}
 			}
 			else if (valg == 3){
-				operatørMenu = false;
+				operatoerMenu = false;
 			}
 			else{
 				System.out.println("Ugyldigt valg, prøv igen");
