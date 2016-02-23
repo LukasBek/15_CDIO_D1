@@ -38,7 +38,6 @@ public class Adgangskode {
 	//tegn ved index 				62-68
 
 
-
 	/**
 	 * 
 	 * @return Genererer et tilfaeldigt kodeord med DTU's krav for et kodeord.
