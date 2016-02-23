@@ -2,12 +2,15 @@ package controllere;
 
 import java.util.Scanner;
 
+import data.Adgangskode;
 import funktionalitet.Funktionalitet;
 
 public class ProgramController {
 
 	private Scanner sc;
 	private Funktionalitet f = new Funktionalitet();
+	private Adgangskode ak = new Adgangskode();
+
 
 	int valg;
 	int ID;
@@ -123,6 +126,7 @@ public class ProgramController {
 				if(f.tjekLogin(ID, kode, 1)){
 					System.out.println("Indtast din oenskede adgangskode her: ");
 					kode = sc.next();
+					ak.kontrolKode(kode);
 					f.setKode(ID, kode);	
 				}else{
 					System.out.println("Forkert adganskode");	

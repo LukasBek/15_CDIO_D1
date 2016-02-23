@@ -1,10 +1,11 @@
-package funktionalitet;
+package data;
 
 import java.util.ArrayList;
 
 public class Adgangskode {
 
 	private ArrayList<String> karakterer = new ArrayList<String>();
+	
 	private String adgangskode = "";
 	private boolean smaaBogstaver;
 	private boolean storeBogstaver;
@@ -12,8 +13,7 @@ public class Adgangskode {
 	private boolean tegn;
 	private int tilf;
 	private int forskelige;
-
-	//Metoden opretter et array med alle de mulige cifre til det tilfaeldige password.
+	
 	public void array(){
 		for (int i = 0; i<=9 ; i++){
 			karakterer.add(Integer.toString(i));
@@ -24,7 +24,6 @@ public class Adgangskode {
 		for (char letter = 'A'; letter <= 'Z'; letter++){
 			karakterer.add(Character.toString(letter));
 		}
-		
 		karakterer.add(".");
 		karakterer.add("-");
 		karakterer.add("_");
@@ -37,6 +36,8 @@ public class Adgangskode {
 	//smaa bogstaver ved index 		10-35
 	//store bogstaver ved index 	36-61
 	//tegn ved index 				62-68
+
+
 
 	/**
 	 * 
@@ -149,4 +150,3 @@ public class Adgangskode {
 		return true;
 	}
 }
-

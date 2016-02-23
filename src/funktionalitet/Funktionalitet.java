@@ -1,7 +1,6 @@
 package funktionalitet;
 
-import java.util.Arrays;
-
+import data.Adgangskode;
 import data.Operatoer;
 import data.Vaegt;
 
@@ -62,7 +61,8 @@ public class Funktionalitet implements IFunktionalitet {
 				index = i;			
 			}		
 		}	
-		if (index != -1){		
+		if (index != -1){
+			
 			o.setAdgangskode(index, kode);		
 		}	
 	}
