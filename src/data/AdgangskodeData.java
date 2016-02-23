@@ -2,7 +2,7 @@ package data;
 
 import java.util.ArrayList;
 
-public class Adgangskode {
+public class AdgangskodeData {
 
 	private ArrayList<String> karakterer = new ArrayList<String>();
 	
@@ -13,6 +13,10 @@ public class Adgangskode {
 	private boolean tegn;
 	private int tilf;
 	private int forskelige;
+	
+	public ArrayList<String> getKarakterer(){
+		return karakterer;
+	}
 	
 	public void array(){
 		for (int i = 0; i<=9 ; i++){
@@ -95,7 +99,30 @@ public class Adgangskode {
 
 		return adgangskode;
 	}
-
+	
+	/**
+	 * 
+	 * @param adgangskode Indsæt adgangskoden som skal kontrolleres
+	 * @return true hvis den er på 6 tegn eller derover
+	 */
+	public boolean kontrolKodeLaengde(String adgangskode){
+		if(adgangskode.length()<6){
+//			System.out.print("Din adgangskode skal bestå af mindst 6 karakterer!");
+			return false;
+		}else if(adgangskode.length()>=6){
+			return true;
+		}else{
+			System.out.println("Fejl i kontrolKodeLaengde");
+			return false;
+		}
+		
+	}
+	
+/**
+ * 
+ * @param adgangskode Indsæt adgangskoden som skal kontrolleres
+ * @return true hvis den består...
+ */
 	public boolean kontrolKode(String adgangskode){
 
 		array();
@@ -106,10 +133,6 @@ public class Adgangskode {
 		storeBogstaver=false;
 		forskelige = 0;
 
-		if(adgangskode.length()<6){
-			System.out.print("Din adgangskode skal bestaa af mindst 6 karakterer!");
-			return false;
-		}else{
 			for(int j=0; j<=9; j++){
 				if(adgangskode.contains(karakterer.get(j))){
 					tal = true;
@@ -141,11 +164,24 @@ public class Adgangskode {
 
 				if(!tal||!smaaBogstaver||!storeBogstaver||!tegn){
 					if(forskelige<3){
-					System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
+//					System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
 					return false;
 					}
 				}
-		}
 		return true;
+	}
+
+
+	public boolean ensKode(String kode, String kodex) {
+		
+		if(kode == kodex) return true;
+		else if (kode != kodex){
+//			System.out.println("Kodeordene er ikke ens!");
+		}
+		return false;
+		
+
+		
+		
 	}
 }

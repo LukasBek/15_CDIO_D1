@@ -1,6 +1,6 @@
 package funktionalitet;
 
-import data.Adgangskode;
+import data.AdgangskodeData;
 import data.Operatoer;
 import data.Vaegt;
 
@@ -8,7 +8,7 @@ public class Funktionalitet implements IFunktionalitet {
 
 	private Vaegt v = new Vaegt();
 	private Operatoer o = new Operatoer();
-	private Adgangskode ak = new Adgangskode();
+	private AdgangskodeData ak = new AdgangskodeData();
 	
 	private int maalingsID = 1;
 	private int oprId = 11;	

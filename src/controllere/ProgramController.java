@@ -2,14 +2,15 @@ package controllere;
 
 import java.util.Scanner;
 
-import data.Adgangskode;
+import data.AdgangskodeData;
+import data.Operatoer;
 import funktionalitet.Funktionalitet;
 
 public class ProgramController {
 
 	private Scanner sc;
 	private Funktionalitet f = new Funktionalitet();
-	private Adgangskode ak = new Adgangskode();
+	private AdgangskodeData ak = new AdgangskodeData();
 
 
 	int valg;
@@ -42,10 +43,10 @@ public class ProgramController {
 			String kode;
 			System.out.println("Indtast ID: ");
 			ID = sc.nextInt();
-			
+
 			System.out.println("Indtast Adgangskode: ");
 			kode = sc.next();
-			
+
 			if(f.tjekLogin(ID, kode, 2)){
 				sysAdminMenu();
 			}
@@ -63,10 +64,10 @@ public class ProgramController {
 		System.out.println("----------------------------------------");
 
 		while (sysAdminMenu){
-			System.out.println("Tast 1 for at oprette en ny operatoer");
-			System.out.println("Tast 2 for at slette en operatoer");
-			System.out.println("Tast 3 for at ændre i en operatoer");
-			System.out.println("Tast 4 for at se en operatoer");
+			System.out.println("Tast 1 for at oprette en ny operatør");
+			System.out.println("Tast 2 for at slette en operatør");
+			System.out.println("Tast 3 for at ændre i en operatør");
+			System.out.println("Tast 4 for at se en operatør");
 			System.out.println("Tast 5 for at logge ud");
 			valg = sc.nextInt();
 			if (valg == 1){
@@ -80,8 +81,8 @@ public class ProgramController {
 				System.out.println("En ny operator er nu blevet oprettet.");
 			}
 			else if (valg == 2){
-				System.out.println("Indtast ID for den operatoer du oensker at slette"
-						+ "(Advarsel - det er ikke muligt at få operatoeren tilbage: ");
+				System.out.println("Indtast ID for den operatør du ønsker at slette"
+						+ "(Advarsel - det er ikke muligt at få operatøren tilbage: ");
 				ID = sc.nextInt();
 				f.deleteOperatoer(ID);
 				System.out.println("Operatoer "+ID+" er nu blevet slettet!");
@@ -90,21 +91,21 @@ public class ProgramController {
 				//TODO implement this...
 			}
 			else if (valg == 4){
-				System.out.println("Indtast ID for den operatoer du oensker at se: ");
+				System.out.println("Indtast ID for den operatør du ønsker at se: ");
 				ID = sc.nextInt();
 				f.showOperatoer(ID);
 			}
 			else if (valg == 5){
 				sysAdminMenu = false;
 			}else{
-				System.out.println("Ugyldigt valg, proev igen");
+				System.out.println("Ugyldigt valg, prøv igen");
 			}
 		}
 	}
 
 	private void operatoerMenu(int ID) {
 		operatoerMenu = true;
-		System.out.println("Velkommen operatoer");
+		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
 
 		while (operatoerMenu){
@@ -123,11 +124,27 @@ public class ProgramController {
 			else if (valg == 2){
 				System.out.println("Indtast din gamle adganskode: ");
 				String kode = sc.next();
-				if(f.tjekLogin(ID, kode, 1)){
-					System.out.println("Indtast din oenskede adgangskode her: ");
-					kode = sc.next();
-					ak.kontrolKode(kode);
-					f.setKode(ID, kode);	
+				String kodex;
+				//				if(f.tjekLogin(ID, kode, 1)){
+				//TODO få koden ind fra brugern fra funktionalitets laget.
+				if(kode == kode){
+					System.out.println("Indtast ny adgangskode her: ");
+					do{
+						kode = sc.next();
+						if(ak.kontrolKodeLaengde(kode)){
+							System.out.print("Din adgangskode skal bestå af mindst 6 karakterer!");
+							if(ak.kontrolKode(kode)){
+								System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
+							}
+						}
+					}while(!ak.kontrolKode(kode));
+					System.out.println("Indtast ny adgangskode igen: ");
+					kodex = sc.next();
+					if(ak.ensKode(kode, kodex)){
+						System.out.println("Kodeordene er ikke ens!");
+					}else if(ak.ensKode(kode, kodex)){
+						f.setKode(ID, kode);
+					}
 				}else{
 					System.out.println("Forkert adganskode");	
 				}
