@@ -11,7 +11,6 @@ public class Adgangskode {
 	private boolean tal;
 	private boolean tegn;
 	private int tilf;
-	private int kodeLaengde;
 	private int forskelige;
 
 	//Metoden opretter et array med alle de mulige cifre til det tilfaeldige password.
@@ -55,9 +54,6 @@ public class Adgangskode {
 
 		//Opretter arrayet
 		array();
-
-		//Hvor langt skal adgangskode v�re? (krav paa min 6)
-		this.kodeLaengde = kodeLaengde;
 
 		while(adgangskode.length()<kodeLaengde){
 			//2. (se 1. laengere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
