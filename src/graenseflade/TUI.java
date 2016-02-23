@@ -23,10 +23,9 @@ public class TUI {
 							+"---------------------------------------\n"
 							+"For operatør-login, tast 1 \n"
 							+"For sysAdmin-login, tast 2");
-			int valg = sc.nextInt();
+			
 
-			lC.valg(valg);
+			lC.valg(sc.nextInt());
 		}
 	}
-
 }
