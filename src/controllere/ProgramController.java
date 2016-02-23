@@ -2,15 +2,15 @@ package controllere;
 
 import java.util.Scanner;
 
-import data.AdgangskodeData;
 import data.Operatoer;
+import funktionalitet.AdgangskodeMetoder;
 import funktionalitet.Funktionalitet;
 
 public class ProgramController {
 
 	private Scanner sc;
 	private Funktionalitet f = new Funktionalitet();
-	private AdgangskodeData ak = new AdgangskodeData();
+	private AdgangskodeMetoder ak = new AdgangskodeMetoder();
 
 
 	int valg;
@@ -127,7 +127,8 @@ public class ProgramController {
 				String kodex;
 				//				if(f.tjekLogin(ID, kode, 1)){
 				//TODO få koden ind fra brugern fra funktionalitets laget.
-				if(kode == kode){
+				
+				if(ak.korrektBrugerKode(ID, kode)){
 					System.out.println("Indtast ny adgangskode her: ");
 					do{
 						kode = sc.next();

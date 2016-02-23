@@ -3,10 +3,12 @@ package funktionalitet;
 import java.util.ArrayList;
 
 import data.AdgangskodeData;
+import data.Operatoer;
 
 public class AdgangskodeMetoder {
 
 	private AdgangskodeData AD = new AdgangskodeData();
+	private Operatoer O = new Operatoer();
 	
 	private ArrayList<String> karakterer = AD.getKarakterer();
 	private boolean smaaBogstaver;
@@ -86,7 +88,12 @@ public class AdgangskodeMetoder {
 		return true;
 	}
 
-
+/**
+ * 
+ * @param kode Første kode
+ * @param kodex Anden kode
+ * @return true hvis koderne er ens METODEN ER TIL OPRETTELSE AF NY KODE
+ */
 	public boolean ensKode(String kode, String kodex) {
 		
 		if(kode == kodex) return true;
@@ -94,9 +101,29 @@ public class AdgangskodeMetoder {
 //			System.out.println("Kodeordene er ikke ens!");
 		}
 		return false;
-		
-
+	}
+	/**
+	 * 
+	 * @return true hvis koden stemmer med brugerens adgangskode
+	 */
+	public boolean korrektBrugerKode(int iD, String kode){
+		int index = -1;	
+		for (int i = 0 ; i < O.getOperatoerArrayLaengde() ; i++){		
+			if (iD == O.getOprId(i)){			
+				index = i;			
+			}		
+		}
+		if(O.getAdgangskode(index) == kode){
+			return true;
+		}else if(O.getAdgangskode(index) == kode){
+			return false;
+		}else{
+			System.out.println("Fejl i 'korrektBrugerKode ved index: "+index);
+			return false;
+		}
 		
 		
 	}
+	
+	
 }
