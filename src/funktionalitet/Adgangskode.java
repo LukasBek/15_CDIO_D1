@@ -12,6 +12,7 @@ public class Adgangskode {
 	private boolean tegn;
 	private int tilf;
 	private int kodeLaengde;
+	private int forskelige;
 
 	//Metoden opretter et array med alle de mulige cifre til det tilfaeldige password.
 	public void array(){
@@ -40,8 +41,8 @@ public class Adgangskode {
 
 	/**
 	 * 
-	 * @return Genererer et tilf�ldigt kodeord med DTU's krav for et kodeord.
-	 * @param Indsaet hvor langt du �nsker kodeordet skal v�re
+	 * @return Genererer et tilfaeldigt kodeord med DTU's krav for et kodeord.
+	 * @param Indsaet hvor langt du oensker kodeordet skal vaere
 	 * 
 	 */
 	public String getNyKode(int kodeLaengde){
@@ -50,16 +51,17 @@ public class Adgangskode {
 		tegn= false;
 		smaaBogstaver=false;
 		storeBogstaver=false;
+		forskelige=0;
 
 		//Opretter arrayet
 		array();
 
-		//Hvor langt skal adgangskode vaere? (krav paa min 6)
+		//Hvor langt skal adgangskode v�re? (krav paa min 6)
 		this.kodeLaengde = kodeLaengde;
 
 		while(adgangskode.length()<kodeLaengde){
 			//2. (se 1. laengere nede) Naar de alle er blacklisted, bliver de alle whitelisted igen.
-			if(smaaBogstaver && storeBogstaver && tal && tegn){
+			if(smaaBogstaver && storeBogstaver && tal && tegn||forskelige>=3){
 				smaaBogstaver=false;
 				storeBogstaver=false;
 				tal=false;
@@ -69,10 +71,22 @@ public class Adgangskode {
 			tilf = (int) (Math.random()*69);
 
 			//Indsaetter vaerdien i koden hvis den er whitelisted.
-			if(tilf<=9&&!tal)							adgangskode = adgangskode + karakterer.get(tilf);
-			if(tilf>=10 && tilf<=35&&!smaaBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
-			if(tilf>=36 && tilf<=61&&!storeBogstaver)	adgangskode = adgangskode + karakterer.get(tilf);
-			if(tilf>=62 && tilf<=68&&!tegn)				adgangskode = adgangskode + karakterer.get(tilf);
+			if(tilf<=9&&!tal){
+				adgangskode = adgangskode + karakterer.get(tilf);
+				forskelige++;
+			}
+			if(tilf>=10 && tilf<=35&&!smaaBogstaver){
+				adgangskode = adgangskode + karakterer.get(tilf);
+				forskelige++;
+			}
+			if(tilf>=36 && tilf<=61&&!storeBogstaver){
+				adgangskode = adgangskode + karakterer.get(tilf);
+				forskelige++;
+			}
+			if(tilf>=62 && tilf<=68&&!tegn){
+				adgangskode = adgangskode + karakterer.get(tilf);
+				forskelige++;
+			}
 
 			//1. For at der er 1 af hver 4 mulige tegn bliver de blacklisted her 1 af gangen.
 			if(tilf<=9)tal=true;
@@ -94,6 +108,7 @@ public class Adgangskode {
 		tegn= false;
 		smaaBogstaver=false;
 		storeBogstaver=false;
+		forskelige = 0;
 
 		if(adgangskode.length()<6){
 			System.out.print("Din adgangskode skal bestaa af mindst 6 karakterer!");
@@ -102,43 +117,37 @@ public class Adgangskode {
 			for(int j=0; j<=9; j++){
 				if(adgangskode.contains(karakterer.get(j))){
 					tal = true;
+					forskelige++;
 					break;
 				}
 			}
 			for(int j=10; j<=35; j++){
 				if(adgangskode.contains(karakterer.get(j))){
 					smaaBogstaver = true;
+					forskelige++;
 					break;
 				}
 			}
 			for(int j=36; j<=61; j++){
 				if(adgangskode.contains(karakterer.get(j))){
 					storeBogstaver = true;
+					forskelige++;
 					break;
 				}
 			}
 			for(int j=62; j<=68; j++){
 				if(adgangskode.contains(karakterer.get(j))){
 					tegn = true;
+					forskelige++;
 					break;
 				}
 			}
 
-				if(!tal){
-					System.out.println("Din adgangskode skal indholde mindst et tal!");
+				if(!tal||!smaaBogstaver||!storeBogstaver||!tegn){
+					if(forskelige<3){
+					System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
 					return false;
-				}
-				if(!smaaBogstaver){
-					System.out.println("Din adgangskode skal indholde mindst et smaat bogstav!");
-					return false;
-				}
-				if(!storeBogstaver){
-					System.out.println("Din adgangskode skal indholde mindst et stort bogstav!");
-					return false;
-				}
-				if(!tegn){
-					System.out.println("Din adgangskode skal indholde mindst et specialtegn!");
-					return false;
+					}
 				}
 		}
 		return true;
