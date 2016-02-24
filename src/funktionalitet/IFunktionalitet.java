@@ -15,4 +15,6 @@ public interface IFunktionalitet {
 	void showOperatoer(int iD);
 
 	void showMaalinger();
+	
+	void changeOperatoer(int iD, int choice, String value);
 }

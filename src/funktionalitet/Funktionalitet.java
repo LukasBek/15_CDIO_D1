@@ -102,4 +102,19 @@ public class Funktionalitet implements IFunktionalitet {
 			System.out.println(v.toString(i));
 		}
 	}
+	@Override
+	public void changeOperatoer(int iD, int choice, String value){
+		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
+			if (iD == o.getOprId(i)){			
+				iD = i;			
+			}		
+		}
+		if (choice == 1){
+			o.setOprNavn(iD, value);
+		} else if (choice == 2){
+			o.setCpr(iD, value);
+		}else if (choice == 3){
+			o.setAdgangskode(iD, value);
+		}
+	}
 }

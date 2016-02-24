@@ -92,7 +92,33 @@ public class ProgramController {
 				System.out.println("Operatoer "+ID+" er nu blevet slettet!");
 			}
 			else if (valg == 3){
-				//TODO implement this...
+				System.out.println("Tast 1 for at ændre navn på en operatør");
+				System.out.println("Tast 2 for at ændre cpr-nummer på en operatør");
+				System.out.println("Tast 3 for at ændre i adgangskoden på en operatør");
+				int m3Valg = sc.nextInt();
+				
+				if(m3Valg == 1){
+					System.out.println("Intast operatørens ID");
+					m3Valg = sc.nextInt();
+					System.out.println("Intast nyt navn til operatør");
+					String m3ValgString = sc.next();
+					f.changeOperatoer(m3Valg, 1, m3ValgString);
+					System.out.println("Operatørens navn er nu ændret");
+				} else if (m3Valg == 2){
+					System.out.println("Intast operatørens ID");
+					m3Valg = sc.nextInt();
+					System.out.println("Intast ny cpr-nummer til operatør");
+					String m3ValgString = sc.next();
+					f.changeOperatoer(m3Valg, 2, m3ValgString);
+					System.out.println("Operatørens cpr-nummer er nu ændret");
+				} else if (m3Valg == 3){
+					System.out.println("Intast operatørens ID");
+					m3Valg = sc.nextInt();
+					System.out.println("Intast ny adgangskode til operatør");
+					String m3ValgString = sc.next();
+					f.changeOperatoer(m3Valg, 3, m3ValgString);
+					System.out.println("Operatørens navn er nu ændret");
+				}
 			}
 			else if (valg == 4){
 				System.out.println("Indtast ID for den operatør du ønsker at se: ");

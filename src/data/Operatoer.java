@@ -8,7 +8,7 @@ ArrayList<op> opArray = new ArrayList<op>();
 
 	public Operatoer(){
 		this.addOp(1, "superBruger", "1aAa1", "2808941999", 2);
-		this.addOp(11, "Something", "Test", "cpr", 1);
+		this.addOp(10, "Something", "Test", "cpr", 1);
 	}
 	
 	public void addOp(int oprId, String oprNavn, String adgangskode, String cpr, int admin){
@@ -79,6 +79,10 @@ ArrayList<op> opArray = new ArrayList<op>();
 		return (opArray.get(index)).getCpr();
 	}
 	
+	public void setCpr(int index, String value){
+		(opArray.get(index)).setCpr(value);
+	}
+	
 	/**
 	 * For at faa admin status af det enkelte operatoer objekt
 	 * @param index : Placeringen i Array Listen metoden bliver kaldt
@@ -146,6 +150,9 @@ ArrayList<op> opArray = new ArrayList<op>();
 		}
 		private int getAdmin(){
 			return admin;
+		}
+		private void setCpr(String value){
+			this.cpr = value;
 		}
 	}
 }
