@@ -15,6 +15,7 @@ public class ProgramController {
 
 	int valg;
 	int ID;
+	String input;
 
 	boolean operatoerMenu = true;
 	boolean sysAdminMenu = true;
@@ -28,22 +29,31 @@ public class ProgramController {
 
 		//Operatoer login
 		if (valg == 1){
+			
 			System.out.println("Indtast ID: ");
-			ID = sc.nextInt();
+			input = sc.next();
+
+			ID = Integer.parseInt(input);
+
 
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.next();
 			if(f.tjekLogin(ID, kode, 1)){
 				operatoerMenu(ID);
-			}else{
+			}
+			else{
 				System.out.println("Forkert login");
 			}
+			
+
 
 			//sysAdminLogin
 		} else if (valg == 2){
+
 			String kode;
 			System.out.println("Indtast ID: ");
-			ID = sc.nextInt();
+			input = sc.next();
+			ID = Integer.parseInt(input);
 
 			System.out.println("Indtast Adgangskode: ");
 			kode = sc.next();
@@ -100,7 +110,7 @@ public class ProgramController {
 				System.out.println("Tast 3 for at ændre i adgangskoden på en operatør");
 				int m3Valg = sc.nextInt();
 				String m3ValgString;
-				
+
 				if(m3Valg == 1){
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();

@@ -1,5 +1,6 @@
 package graenseflade;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import controllere.ProgramController;
@@ -24,8 +25,11 @@ public class TUI {
 							+"For operatør-login, tast 1 \n"
 							+"For sysAdmin-login, tast 2");
 			
-
+			try{
 			lC.valg(sc.nextInt());
+			}catch (NumberFormatException ne) {
+				System.out.println("\tPlease enter a positive whole number.");
+			}
 		}
 	}
 }
