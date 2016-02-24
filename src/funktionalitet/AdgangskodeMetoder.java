@@ -8,7 +8,13 @@ import data.Operatoer;
 public class AdgangskodeMetoder {
 
 	private AdgangskodeData AD = new AdgangskodeData();
-	private Operatoer O = new Operatoer();
+	private Operatoer o;
+	
+	
+	
+	
+	
+	
 	
 	private ArrayList<String> karakterer = AD.getKarakterer();
 	private boolean smaaBogstaver;
@@ -16,6 +22,10 @@ public class AdgangskodeMetoder {
 	private boolean tal;
 	private boolean tegn;
 	private int forskelige;
+
+	public AdgangskodeMetoder(Operatoer o) {
+		this.o = o;
+	}
 
 	/**
 	 * 
@@ -107,15 +117,19 @@ public class AdgangskodeMetoder {
 	 * @return true hvis koden stemmer med brugerens adgangskode
 	 */
 	public boolean korrektBrugerKode(int iD, String kode){
+		
+		System.out.println("OPR iD Brugerkode " + iD);
+
+		
 		int index = -1;	
-		for (int i = 0 ; i < O.getOperatoerArrayLaengde()-1 ; i++){		
-			if (iD == O.getOprId(i)){			
+		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
+			if (iD == o.getOprId(i)){			
 				index = i;			
 			}		
 		}
-		if(O.getAdgangskode(index) == kode){
+		if(o.getAdgangskode(index) == kode){
 			return true;
-		}else if(O.getAdgangskode(index) == kode){
+		}else if(o.getAdgangskode(index) == kode){
 			return false;
 		}else{
 			System.out.println("Fejl i 'korrektBrugerKode ved index: "+index);

@@ -9,8 +9,9 @@ import funktionalitet.Funktionalitet;
 public class ProgramController {
 
 	private Scanner sc;
-	private Funktionalitet f = new Funktionalitet();
-	private AdgangskodeMetoder ak = new AdgangskodeMetoder();
+	private Operatoer o = new Operatoer();
+	private Funktionalitet f = new Funktionalitet(o);
+	private AdgangskodeMetoder ak = new AdgangskodeMetoder(o);
 
 
 	int valg;
@@ -30,6 +31,9 @@ public class ProgramController {
 		if (valg == 1){
 			System.out.println("Indtast ID: ");
 			ID = sc.nextInt();
+			
+			System.out.println("OPR iD logon " + ID);
+			
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.next();
 			if(f.tjekLogin(ID, kode, 1)){
@@ -108,6 +112,9 @@ public class ProgramController {
 		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
 
+		System.out.println("OPR iD oprid " + ID);
+
+		
 		while (operatoerMenu){
 			System.out.println("Tast 1 for at bruge nettovægtberegneren");
 			System.out.println("Tast 2 for at skifte adgangskode");
@@ -123,6 +130,10 @@ public class ProgramController {
 			}
 			else if (valg == 2){
 				System.out.println("Indtast din gamle adganskode: ");
+				
+				System.out.println("OPR iD Adgangskode " + ID);
+
+				
 				String kode = sc.next();
 				String kodex;
 				//				if(f.tjekLogin(ID, kode, 1)){
