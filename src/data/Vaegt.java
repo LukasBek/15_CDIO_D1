@@ -41,7 +41,7 @@ ArrayList<v> vArray = new ArrayList<v>();
 	}
 	
 	public String toString(int index) {
-		return "Måling: "+ getMaalingsID(index) + "Operatør: " + getId(index) + "Vægt: " + getVaegt(index);
+		return "Måling: "+ getMaalingsID(index) + " Operatør: " + getId(index) + " Vægt: " + getVaegt(index);
 		
 	}
 	
