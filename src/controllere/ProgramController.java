@@ -127,21 +127,21 @@ public class ProgramController {
 				String kodex;
 				//				if(f.tjekLogin(ID, kode, 1)){
 				//TODO få koden ind fra brugern fra funktionalitets laget.
-				
+
 				if(ak.korrektBrugerKode(ID, kode)){
 					System.out.println("Indtast ny adgangskode her: ");
 					do{
 						kode = sc.next();
-						if(ak.kontrolKodeLaengde(kode)){
+						if(!ak.kontrolKodeLaengde(kode)){
 							System.out.print("Din adgangskode skal bestå af mindst 6 karakterer!");
-							if(ak.kontrolKode(kode)){
-								System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
-							}
+						}
+						if(!ak.kontrolKode(kode)){
+							System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
 						}
 					}while(!ak.kontrolKode(kode));
 					System.out.println("Indtast ny adgangskode igen: ");
 					kodex = sc.next();
-					if(ak.ensKode(kode, kodex)){
+					if(!ak.ensKode(kode, kodex)){
 						System.out.println("Kodeordene er ikke ens!");
 					}else if(ak.ensKode(kode, kodex)){
 						f.setKode(ID, kode);

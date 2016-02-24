@@ -108,7 +108,7 @@ public class AdgangskodeMetoder {
 	 */
 	public boolean korrektBrugerKode(int iD, String kode){
 		int index = -1;	
-		for (int i = 0 ; i < O.getOperatoerArrayLaengde() ; i++){		
+		for (int i = 0 ; i < O.getOperatoerArrayLaengde()-1 ; i++){		
 			if (iD == O.getOprId(i)){			
 				index = i;			
 			}		

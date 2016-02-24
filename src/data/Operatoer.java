@@ -55,6 +55,9 @@ ArrayList<op> opArray = new ArrayList<op>();
 	 * @return The Ini (?) of the operator
 	 */
 	public String getAdgangskode(int index){
+		
+		System.out.println("getAdgangskode index " + index);
+		
 		return (opArray.get(index)).getIni();
 	}
 	
