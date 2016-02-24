@@ -1,5 +1,7 @@
 package funktionalitet;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import data.AdgangskodeData;
 import data.Operatoer;
 import data.Vaegt;
@@ -92,7 +94,18 @@ public class Funktionalitet implements IFunktionalitet {
 
 	@Override
 	public void showOperatoer(int iD) {
-		// TODO Auto-generated method stub		
+		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
+			if (iD == o.getOprId(i)){			
+				iD = i;			
+			}		
+		}
+		String[] opValues = new String[5];
+		opValues[0] = Integer.toString(o.getOprId(iD));
+		opValues[1] = o.getOprNavn(iD);
+		opValues[2] = o.getCpr(iD);
+		opValues[3] = o.getAdgangskode(iD);
+		opValues[4] = Integer.toString(o.getAdminStatus(iD));
+		System.out.println(Arrays.toString(opValues));
 	}
 
 	@Override
