@@ -34,12 +34,9 @@ public class Funktionalitet implements IFunktionalitet {
 					} else {
 						return true;
 					}
-				}else{
-					System.out.println("Kodeord ikke accepteret!");
 				}
 			}
 		}
-		System.out.println("Bruger ikke fundet");
 		return false;
 	}
 
@@ -72,7 +69,7 @@ public class Funktionalitet implements IFunktionalitet {
 
 		String Adgangskode = ak.getNyKode(6);		
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
-		System.out.println(Adgangskode);
+		System.out.println("DEV NOTICE - den nye operatoers adganskode (copy paste): "+Adgangskode);
 		oprId++;
 	}
 
