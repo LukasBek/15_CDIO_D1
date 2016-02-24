@@ -32,8 +32,6 @@ public class ProgramController {
 			System.out.println("Indtast ID: ");
 			ID = sc.nextInt();
 			
-			System.out.println("OPR iD logon " + ID);
-			
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.next();
 			if(f.tjekLogin(ID, kode, 1)){
@@ -42,7 +40,7 @@ public class ProgramController {
 
 			}
 
-
+		//sysAdminLogin
 		} else if (valg == 2){
 			String kode;
 			System.out.println("Indtast ID: ");
@@ -137,9 +135,6 @@ public class ProgramController {
 		operatoerMenu = true;
 		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
-
-		System.out.println("OPR iD oprid " + ID);
-
 		
 		while (operatoerMenu){
 			System.out.println("Tast 1 for at bruge nettovægtberegneren");
@@ -152,18 +147,14 @@ public class ProgramController {
 				double tarra = sc.nextDouble();
 				System.out.println("Indtast bruttovægt (kg): ");
 				double brutto = sc.nextDouble();
-				f.nettoVaegt(ID, brutto, tarra);
+				double netto = f.nettoVaegt(ID, brutto, tarra);
+				System.out.println("Nettovægt: "+ netto);
 			}
 			else if (valg == 2){
 				System.out.println("Indtast din gamle adganskode: ");
 				
-				System.out.println("OPR iD Adgangskode " + ID);
-
-				
 				String kode = sc.next();
 				String kodex;
-				//				if(f.tjekLogin(ID, kode, 1)){
-				//TODO få koden ind fra brugern fra funktionalitets laget.
 
 				if(ak.korrektBrugerKode(ID, kode)){
 					System.out.println("Indtast ny adgangskode her: ");
@@ -184,7 +175,7 @@ public class ProgramController {
 						f.setKode(ID, kode);
 					}
 				}else{
-					System.out.println("Forkert adganskode");	
+					System.out.println("Forkert adganskode!");	
 				}
 			}
 			else if (valg == 3){

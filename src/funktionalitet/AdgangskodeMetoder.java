@@ -100,11 +100,8 @@ public class AdgangskodeMetoder {
 	 */
 	public boolean ensKode(String kode, String kodex) {
 
-		if(kode == kodex) return true;
-		else if (kode != kodex){
-			//			System.out.println("Kodeordene er ikke ens!");
-		}
-		return false;
+		if(kode.equals(kodex)) return true;
+		else return false;
 	}
 	/**
 	 * 
@@ -118,7 +115,8 @@ public class AdgangskodeMetoder {
 				index = i;			
 			}		
 		}
-		if(o.getAdgangskode(index) == kode){
+		
+		if(o.getAdgangskode(index).equals(kode)){
 			return true;
 		}else{
 			return false;
