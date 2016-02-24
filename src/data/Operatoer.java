@@ -7,8 +7,8 @@ public class Operatoer implements IOperatoer{
 ArrayList<op> opArray = new ArrayList<op>();
 
 	public Operatoer(){
-		this.addOp(1, "superBruger", "1aAa1", "2808941999", 2);
-		this.addOp(10, "Something", "Test", "cpr", 1);
+		this.addOp(10, "Admin", "Abc02324", "2808941999", 2);
+		this.addOp(1, "Something", "Test", "cpr", 1);
 	}
 	
 	public void addOp(int oprId, String oprNavn, String adgangskode, String cpr, int admin){
