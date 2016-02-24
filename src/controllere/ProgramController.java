@@ -13,7 +13,6 @@ public class ProgramController {
 	private Funktionalitet f = new Funktionalitet(o);
 	private AdgangskodeMetoder ak = new AdgangskodeMetoder(o);
 
-
 	int valg;
 	int ID;
 
@@ -31,16 +30,16 @@ public class ProgramController {
 		if (valg == 1){
 			System.out.println("Indtast ID: ");
 			ID = sc.nextInt();
-			
+
 			System.out.println("Indtast Adgangskode: ");
 			String kode = sc.next();
 			if(f.tjekLogin(ID, kode, 1)){
 				operatoerMenu(ID);
 			}else{
-
+				System.out.println("Forkert login");
 			}
 
-		//sysAdminLogin
+			//sysAdminLogin
 		} else if (valg == 2){
 			String kode;
 			System.out.println("Indtast ID: ");
@@ -51,6 +50,8 @@ public class ProgramController {
 
 			if(f.tjekLogin(ID, kode, 2)){
 				sysAdminMenu();
+			}else{
+				System.out.println("Forkert login");
 			}
 		}
 		else{
@@ -70,8 +71,10 @@ public class ProgramController {
 			System.out.println("Tast 2 for at slette en operatør");
 			System.out.println("Tast 3 for at ændre i en operatør");
 			System.out.println("Tast 4 for at se en operatør");
-			System.out.println("Tast 5 for at logge ud");
+			System.out.println("Tast 5 for at se målinger lavet, med nettovægtsberegneren");
+			System.out.println("Tast 6 for at logge ud");
 			valg = sc.nextInt();
+
 			if (valg == 1){
 				System.out.println("Indtast navn: ");
 				String navn = sc.next();
@@ -82,6 +85,7 @@ public class ProgramController {
 				f.createOperatoer(navn, cpr, admin);
 				System.out.println("En ny operator er nu blevet oprettet.");
 			}
+
 			else if (valg == 2){
 				System.out.println("Indtast ID for den operatør du ønsker at slette"
 						+ "(Advarsel - det er ikke muligt at få operatøren tilbage: ");
@@ -89,12 +93,13 @@ public class ProgramController {
 				f.deleteOperatoer(ID);
 				System.out.println("Operatoer "+ID+" er nu blevet slettet!");
 			}
+
 			else if (valg == 3){
 				System.out.println("Tast 1 for at ændre navn på en operatør");
 				System.out.println("Tast 2 for at ændre cpr-nummer på en operatør");
 				System.out.println("Tast 3 for at ændre i adgangskoden på en operatør");
 				int m3Valg = sc.nextInt();
-				
+
 				if(m3Valg == 1){
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();
@@ -102,14 +107,18 @@ public class ProgramController {
 					String m3ValgString = sc.next();
 					f.changeOperatoer(m3Valg, 1, m3ValgString);
 					System.out.println("Operatørens navn er nu ændret");
-				} else if (m3Valg == 2){
+				} 
+
+				else if (m3Valg == 2){
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();
 					System.out.println("Intast ny cpr-nummer til operatør");
 					String m3ValgString = sc.next();
 					f.changeOperatoer(m3Valg, 2, m3ValgString);
 					System.out.println("Operatørens cpr-nummer er nu ændret");
-				} else if (m3Valg == 3){
+				} 
+
+				else if (m3Valg == 3){
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();
 					System.out.println("Intast ny adgangskode til operatør");
@@ -118,12 +127,18 @@ public class ProgramController {
 					System.out.println("Operatørens navn er nu ændret");
 				}
 			}
+
 			else if (valg == 4){
 				System.out.println("Indtast ID for den operatør du ønsker at se: ");
 				ID = sc.nextInt();
 				f.showOperatoer(ID);
 			}
+
 			else if (valg == 5){
+				f.showMaalinger();
+			}
+
+			else if (valg == 6){
 				sysAdminMenu = false;
 			}else{
 				System.out.println("Ugyldigt valg, prøv igen");
@@ -135,7 +150,7 @@ public class ProgramController {
 		operatoerMenu = true;
 		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
-		
+
 		while (operatoerMenu){
 			System.out.println("Tast 1 for at bruge nettovægtberegneren");
 			System.out.println("Tast 2 for at skifte adgangskode");
@@ -150,9 +165,10 @@ public class ProgramController {
 				double netto = f.nettoVaegt(ID, brutto, tarra);
 				System.out.println("Nettovægt: "+ netto);
 			}
+
 			else if (valg == 2){
 				System.out.println("Indtast din gamle adganskode: ");
-				
+
 				String kode = sc.next();
 				String kodex;
 
@@ -161,17 +177,19 @@ public class ProgramController {
 					do{
 						kode = sc.next();
 						if(!ak.kontrolKodeLaengde(kode)){
-							System.out.print("Din adgangskode skal bestå af mindst 6 karakterer!");
+							System.out.println("Din adgangskode skal bestå af mindst 6 karakterer!");
 						}
 						if(!ak.kontrolKode(kode)){
 							System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
 						}
-					}while(!ak.kontrolKode(kode));
+					}while(!ak.kontrolKode(kode)&&!ak.kontrolKodeLaengde(kode));
 					System.out.println("Indtast ny adgangskode igen: ");
 					kodex = sc.next();
 					if(!ak.ensKode(kode, kodex)){
 						System.out.println("Kodeordene er ikke ens!");
-					}else if(ak.ensKode(kode, kodex)){
+					}
+
+					else if(ak.ensKode(kode, kodex)){
 						f.setKode(ID, kode);
 					}
 				}else{
