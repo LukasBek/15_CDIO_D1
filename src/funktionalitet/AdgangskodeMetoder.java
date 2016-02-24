@@ -1,7 +1,7 @@
 package funktionalitet;
 
 import java.util.ArrayList;
-
+import java.util.Scanner;
 import data.AdgangskodeData;
 import data.Operatoer;
 
@@ -20,7 +20,19 @@ public class AdgangskodeMetoder {
 	public AdgangskodeMetoder(Operatoer o) {
 		this.o = o;
 	}
-
+	public String kontrollerKode(int id, Scanner sc){
+		String kode;
+		do{
+			kode = sc.next();
+			if(!this.kontrolKodeLaengde(kode)){
+				System.out.print("Din adgangskode skal bestå af mindst 6 karakterer!");
+			}
+			if(!this.kontrolKode(kode)){
+				System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
+			}
+		}while(!this.kontrolKode(kode));
+		return kode;
+	}
 	/**
 	 * 
 	 * @param adgangskode Indsæt adgangskoden som skal kontrolleres

@@ -99,12 +99,13 @@ public class ProgramController {
 				System.out.println("Tast 2 for at ændre cpr-nummer på en operatør");
 				System.out.println("Tast 3 for at ændre i adgangskoden på en operatør");
 				int m3Valg = sc.nextInt();
-
+				String m3ValgString;
+				
 				if(m3Valg == 1){
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();
 					System.out.println("Intast nyt navn til operatør");
-					String m3ValgString = sc.next();
+					m3ValgString = sc.next();
 					f.changeOperatoer(m3Valg, 1, m3ValgString);
 					System.out.println("Operatørens navn er nu ændret");
 				} 
@@ -113,7 +114,7 @@ public class ProgramController {
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();
 					System.out.println("Intast ny cpr-nummer til operatør");
-					String m3ValgString = sc.next();
+					m3ValgString = sc.next();
 					f.changeOperatoer(m3Valg, 2, m3ValgString);
 					System.out.println("Operatørens cpr-nummer er nu ændret");
 				} 
@@ -122,7 +123,7 @@ public class ProgramController {
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();
 					System.out.println("Intast ny adgangskode til operatør");
-					String m3ValgString = sc.next();
+					m3ValgString = ak.kontrollerKode(m3Valg, sc);
 					f.changeOperatoer(m3Valg, 3, m3ValgString);
 					System.out.println("Operatørens navn er nu ændret");
 				}
@@ -174,15 +175,7 @@ public class ProgramController {
 
 				if(ak.korrektBrugerKode(ID, kode)){
 					System.out.println("Indtast ny adgangskode her: ");
-					do{
-						kode = sc.next();
-						if(!ak.kontrolKodeLaengde(kode)){
-							System.out.println("Din adgangskode skal bestå af mindst 6 karakterer!");
-						}
-						if(!ak.kontrolKode(kode)){
-							System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
-						}
-					}while(!ak.kontrolKode(kode)&&!ak.kontrolKodeLaengde(kode));
+					kode = ak.kontrollerKode(ID, sc);
 					System.out.println("Indtast ny adgangskode igen: ");
 					kodex = sc.next();
 					if(!ak.ensKode(kode, kodex)){
