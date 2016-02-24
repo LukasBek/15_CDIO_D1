@@ -9,13 +9,7 @@ public class AdgangskodeMetoder {
 
 	private AdgangskodeData AD = new AdgangskodeData();
 	private Operatoer o;
-	
-	
-	
-	
-	
-	
-	
+
 	private ArrayList<String> karakterer = AD.getKarakterer();
 	private boolean smaaBogstaver;
 	private boolean storeBogstaver;
@@ -34,7 +28,7 @@ public class AdgangskodeMetoder {
 	 */
 	public boolean kontrolKodeLaengde(String adgangskode){
 		if(adgangskode.length()<6){
-//			System.out.print("Din adgangskode skal bestå af mindst 6 karakterer!");
+			//			System.out.print("Din adgangskode skal bestå af mindst 6 karakterer!");
 			return false;
 		}else if(adgangskode.length()>=6){
 			return true;
@@ -42,14 +36,14 @@ public class AdgangskodeMetoder {
 			System.out.println("Fejl i kontrolKodeLaengde");
 			return false;
 		}
-		
+
 	}
-	
-/**
- * 
- * @param adgangskode Indsæt adgangskoden som skal kontrolleres
- * @return true hvis den består...
- */
+
+	/**
+	 * 
+	 * @param adgangskode Indsæt adgangskoden som skal kontrolleres
+	 * @return true hvis den består...
+	 */
 	public boolean kontrolKode(String adgangskode){
 
 		AD.array();
@@ -60,55 +54,55 @@ public class AdgangskodeMetoder {
 		storeBogstaver=false;
 		forskelige = 0;
 
-			for(int j=0; j<=9; j++){
-				if(adgangskode.contains(karakterer.get(j))){
-					tal = true;
-					forskelige++;
-					break;
-				}
+		for(int j=0; j<=9; j++){
+			if(adgangskode.contains(karakterer.get(j))){
+				tal = true;
+				forskelige++;
+				break;
 			}
-			for(int j=10; j<=35; j++){
-				if(adgangskode.contains(karakterer.get(j))){
-					smaaBogstaver = true;
-					forskelige++;
-					break;
-				}
+		}
+		for(int j=10; j<=35; j++){
+			if(adgangskode.contains(karakterer.get(j))){
+				smaaBogstaver = true;
+				forskelige++;
+				break;
 			}
-			for(int j=36; j<=61; j++){
-				if(adgangskode.contains(karakterer.get(j))){
-					storeBogstaver = true;
-					forskelige++;
-					break;
-				}
+		}
+		for(int j=36; j<=61; j++){
+			if(adgangskode.contains(karakterer.get(j))){
+				storeBogstaver = true;
+				forskelige++;
+				break;
 			}
-			for(int j=62; j<=68; j++){
-				if(adgangskode.contains(karakterer.get(j))){
-					tegn = true;
-					forskelige++;
-					break;
-				}
+		}
+		for(int j=62; j<=68; j++){
+			if(adgangskode.contains(karakterer.get(j))){
+				tegn = true;
+				forskelige++;
+				break;
 			}
+		}
 
-				if(!tal||!smaaBogstaver||!storeBogstaver||!tegn){
-					if(forskelige<3){
-//					System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
-					return false;
-					}
-				}
+		if(!tal||!smaaBogstaver||!storeBogstaver||!tegn){
+			if(forskelige<3){
+				//					System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
+				return false;
+			}
+		}
 		return true;
 	}
 
-/**
- * 
- * @param kode Første kode
- * @param kodex Anden kode
- * @return true hvis koderne er ens METODEN ER TIL OPRETTELSE AF NY KODE
- */
+	/**
+	 * 
+	 * @param kode Første kode
+	 * @param kodex Anden kode
+	 * @return true hvis koderne er ens METODEN ER TIL OPRETTELSE AF NY KODE
+	 */
 	public boolean ensKode(String kode, String kodex) {
-		
+
 		if(kode == kodex) return true;
 		else if (kode != kodex){
-//			System.out.println("Kodeordene er ikke ens!");
+			//			System.out.println("Kodeordene er ikke ens!");
 		}
 		return false;
 	}
@@ -117,10 +111,7 @@ public class AdgangskodeMetoder {
 	 * @return true hvis koden stemmer med brugerens adgangskode
 	 */
 	public boolean korrektBrugerKode(int iD, String kode){
-		
-		System.out.println("OPR iD Brugerkode " + iD);
 
-		
 		int index = -1;	
 		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
 			if (iD == o.getOprId(i)){			
@@ -129,15 +120,12 @@ public class AdgangskodeMetoder {
 		}
 		if(o.getAdgangskode(index) == kode){
 			return true;
-		}else if(o.getAdgangskode(index) == kode){
-			return false;
 		}else{
-			System.out.println("Fejl i 'korrektBrugerKode ved index: "+index);
 			return false;
 		}
-		
-		
+
+
 	}
-	
-	
+
+
 }
