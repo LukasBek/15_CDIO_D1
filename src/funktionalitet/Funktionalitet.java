@@ -115,6 +115,8 @@ public class Funktionalitet implements IFunktionalitet {
 			System.out.println(v.toString(i));
 		}
 	}
+	
+	
 	@Override
 	public void changeOperatoer(int iD, int choice, String value){
 		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
@@ -129,5 +131,31 @@ public class Funktionalitet implements IFunktionalitet {
 		}else if (choice == 3){
 			o.setAdgangskode(iD, value);
 		}
+	}
+
+	@Override
+	public void showMaalinger(int iD) {
+
+		int index = -1;
+		
+		for (int i = 0 ; i < v.getVaegtArratLaengde() ; i++){
+			
+			if (iD == v.getId(index)){
+				
+				System.out.println(v.toString(index));
+				
+			}
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
 }
