@@ -1,7 +1,7 @@
 package controllere;
 
 import java.util.Scanner;
-
+import java.util.Arrays;
 import data.Operatoer;
 import funktionalitet.AdgangskodeMetoder;
 import funktionalitet.Funktionalitet;
@@ -142,7 +142,7 @@ public class ProgramController {
 			else if (valg == 4){
 				System.out.println("Indtast ID for den operatør du ønsker at se: ");
 				ID = sc.nextInt();
-				f.showOperatoer(ID);
+				System.out.println(Arrays.toString(f.getOperatoer(ID)));
 			}
 
 			else if (valg == 5){

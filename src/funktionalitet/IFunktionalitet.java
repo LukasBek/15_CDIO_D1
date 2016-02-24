@@ -12,7 +12,7 @@ public interface IFunktionalitet {
 
 	void deleteOperatoer(int iD);
 
-	void showOperatoer(int iD);
+	String[] getOperatoer(int iD);
 
 	void showMaalinger();
 	
