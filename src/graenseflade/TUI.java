@@ -4,20 +4,16 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import controllere.ProgramController;
-import funktionalitet.Funktionalitet;
 
 //textual user interface
 public class TUI {
 
-	private Funktionalitet f;
+	ProgramController lC = new ProgramController(this);
 
-	Scanner sc = new Scanner(System.in);
-
-	ProgramController lC = new ProgramController(sc);
-
-	public TUI(){
-
+	public void hovedMenu(){
+		
 		while (true){
+			Scanner sc = new Scanner(System.in);
 			System.out.println(
 					"---------------------------------------\n"
 							+"Velkommen til nettovægts-beregneren\n"
@@ -29,6 +25,9 @@ public class TUI {
 			lC.valg(sc.nextInt());
 			}catch (NumberFormatException ne) {
 				System.out.println("\tPlease enter a positive whole number.");
+			}catch (InputMismatchException ipe){
+				System.out.println("\tPlease enter a positive wole number ");
+				
 			}
 		}
 	}
