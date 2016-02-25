@@ -30,7 +30,7 @@ public class ProgramController {
 
 		//Operatoer login
 		if (valg == 1){
-			
+
 			System.out.println("Indtast ID: ");
 			input = sc.next();
 
@@ -45,7 +45,7 @@ public class ProgramController {
 			else{
 				System.out.println("Forkert login");
 			}
-			
+
 
 
 			//sysAdminLogin
@@ -100,8 +100,7 @@ public class ProgramController {
 				try {
 					f.createOperatoer(navn, cpr, admin);
 				} catch (FException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("Wrong ID: "+ e.myprint());
 				}
 				System.out.println("En ny operator er nu blevet oprettet.");
 			}
@@ -113,8 +112,7 @@ public class ProgramController {
 				try {
 					f.deleteOperatoer(ID);
 				} catch (FException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("Wrong ID: "+ e.myprint());
 				}
 				System.out.println("Operatoer "+ID+" er nu blevet slettet!");
 			}
@@ -138,8 +136,7 @@ public class ProgramController {
 					try {
 						f.updateOperatoer(m3Valg, 1, m3ValgString);
 					} catch (FException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("Wrong ID: "+ e.myprint());
 					}
 					System.out.println("Operatørens navn er nu ændret");
 				} 
@@ -151,11 +148,10 @@ public class ProgramController {
 					m3ValgString = sc.next();
 					try {
 						f.updateOperatoer(m3Valg, 2, m3ValgString);
+						System.out.println("Operatørens cpr-nummer er nu ændret");
 					} catch (FException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("Wrong ID: "+ e.myprint());
 					}
-					System.out.println("Operatørens cpr-nummer er nu ændret");
 				} 
 
 				else if (m3Valg == 3){
@@ -165,11 +161,10 @@ public class ProgramController {
 					m3ValgString = ak.kontrollerKode(m3Valg, sc);
 					try {
 						f.updateOperatoer(m3Valg, 3, m3ValgString);
+						System.out.println("Operatørens navn er nu ændret");
 					} catch (FException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("Wrong ID: "+ e.myprint());
 					}
-					System.out.println("Operatørens navn er nu ændret");
 				}
 			}
 
@@ -179,8 +174,7 @@ public class ProgramController {
 				try {
 					System.out.println(Arrays.toString(f.getOperatoer(ID)));
 				} catch (FException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("Wrong ID: "+ e.myprint());
 				}
 			}
 
