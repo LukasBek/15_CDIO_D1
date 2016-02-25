@@ -144,8 +144,8 @@ ArrayList<op> opArray = new ArrayList<op>();
 		private String getIni() {
 			return adgangskode;
 		}
-		private void setIni(String ini) {
-			this.adgangskode = ini;
+		private void setIni(String pwd) {
+			this.adgangskode = pwd;
 		}
 		private String getCpr() {
 			return cpr;
