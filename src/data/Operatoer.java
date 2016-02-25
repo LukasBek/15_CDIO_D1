@@ -60,12 +60,12 @@ ArrayList<op> opArray = new ArrayList<op>();
 	}
 	
 	/**
-	 * Soetter ini paa et givent operator objekt
+	 * Soetter adgangskode paa et givent operator objekt
 	 * @param index  : Placeringen i Array Listen metoden bliver kaldt
-	 * @param ini : ini
+	 * @param pwd : adgangskode
 	 */
-	public void setAdgangskode(int index, String ini){
-		(opArray.get(index)).setIni(ini);
+	public void setAdgangskode(int index, String pwd){
+		(opArray.get(index)).setIni(pwd);
 	}
 	
 	/**
@@ -75,6 +75,11 @@ ArrayList<op> opArray = new ArrayList<op>();
 	public String getCpr(int index){
 		return (opArray.get(index)).getCpr();
 	}
+	/**
+	 * Soetter cpr-nummeret for en given operatoer
+	 * @param index : Placeringen i Array Listen metoden bliver kaldt
+	 * @param value : Cpr-nummer
+	 */
 	
 	public void setCpr(int index, String value){
 		(opArray.get(index)).setCpr(value);
