@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 import data.Operatoer;
 import funktionalitet.AdgangskodeMetoder;
+import funktionalitet.FException;
 import funktionalitet.Funktionalitet;
 
 public class ProgramController {
@@ -92,7 +93,12 @@ public class ProgramController {
 				String cpr = sc.next();
 				System.out.println("Er det en administrator? (tast 1 hvis nej, 2 hvis ja)");
 				int admin = sc.nextInt();
-				f.createOperatoer(navn, cpr, admin);
+				try {
+					f.createOperatoer(navn, cpr, admin);
+				} catch (FException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println("En ny operator er nu blevet oprettet.");
 			}
 
@@ -100,7 +106,12 @@ public class ProgramController {
 				System.out.println("Indtast ID for den operatør du ønsker at slette"
 						+ "(Advarsel - det er ikke muligt at få operatøren tilbage: ");
 				ID = sc.nextInt();
-				f.deleteOperatoer(ID);
+				try {
+					f.deleteOperatoer(ID);
+				} catch (FException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println("Operatoer "+ID+" er nu blevet slettet!");
 			}
 
@@ -116,7 +127,12 @@ public class ProgramController {
 					m3Valg = sc.nextInt();
 					System.out.println("Intast nyt navn til operatør");
 					m3ValgString = sc.next();
-					f.changeOperatoer(m3Valg, 1, m3ValgString);
+					try {
+						f.updateOperatoer(m3Valg, 1, m3ValgString);
+					} catch (FException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					System.out.println("Operatørens navn er nu ændret");
 				} 
 
@@ -125,7 +141,12 @@ public class ProgramController {
 					m3Valg = sc.nextInt();
 					System.out.println("Intast ny cpr-nummer til operatør");
 					m3ValgString = sc.next();
-					f.changeOperatoer(m3Valg, 2, m3ValgString);
+					try {
+						f.updateOperatoer(m3Valg, 2, m3ValgString);
+					} catch (FException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					System.out.println("Operatørens cpr-nummer er nu ændret");
 				} 
 
@@ -134,7 +155,12 @@ public class ProgramController {
 					m3Valg = sc.nextInt();
 					System.out.println("Intast ny adgangskode til operatør");
 					m3ValgString = ak.kontrollerKode(m3Valg, sc);
-					f.changeOperatoer(m3Valg, 3, m3ValgString);
+					try {
+						f.updateOperatoer(m3Valg, 3, m3ValgString);
+					} catch (FException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					System.out.println("Operatørens navn er nu ændret");
 				}
 			}
@@ -142,7 +168,12 @@ public class ProgramController {
 			else if (valg == 4){
 				System.out.println("Indtast ID for den operatør du ønsker at se: ");
 				ID = sc.nextInt();
-				System.out.println(Arrays.toString(f.getOperatoer(ID)));
+				try {
+					System.out.println(Arrays.toString(f.getOperatoer(ID)));
+				} catch (FException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			else if (valg == 5){

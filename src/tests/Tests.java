@@ -59,7 +59,7 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerName(){
-		f.changeOperatoer(1, 1, "Bob");
+		f.updateOperatoer(1, 1, "Bob");
 		
 		String actualValue = o.getOprNavn(1);
 		String expectedValue = "Bob";
@@ -69,7 +69,7 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerCpr(){
-		f.changeOperatoer(1, 2, "1234567890");
+		f.updateOperatoer(1, 2, "1234567890");
 		
 		String actualValue = o.getCpr(1);
 		String expectedValue = "1234567890";
@@ -79,7 +79,7 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerPass(){
-		f.changeOperatoer(1, 3, "B0b");
+		f.updateOperatoer(1, 3, "B0b");
 		
 		String actualValue = o.getAdgangskode(1);
 		String expectedValue = "B0b";

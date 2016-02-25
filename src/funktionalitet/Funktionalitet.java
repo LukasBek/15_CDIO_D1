@@ -69,7 +69,7 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 
 	@Override
-	public void createOperatoer(String oprNavn, String cpr, int admin) {		
+	public void createOperatoer(String oprNavn, String cpr, int admin) throws FException{		
 
 		String Adgangskode = ak.getNyKode(6);		
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
@@ -78,7 +78,7 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 
 	@Override
-	public void deleteOperatoer(int iD) {	
+	public void deleteOperatoer(int iD) throws FException {	
 		int index = -1;	
 		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
 			if (iD == o.getOprId(i)){			
@@ -92,7 +92,7 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 
 	@Override
-	public String[] getOperatoer(int iD) {
+	public String[] getOperatoer(int iD) throws FException {
 		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
 			if (iD == o.getOprId(i)){			
 				iD = i;			
@@ -117,7 +117,7 @@ public class Funktionalitet implements IFunktionalitet {
 	
 	
 	@Override
-	public void changeOperatoer(int iD, int choice, String value){
+	public void updateOperatoer(int iD, int choice, String value) throws FException{
 		for (int i = 0 ; i < o.getOperatoerArrayLaengde() ; i++){		
 			if (iD == o.getOprId(i)){			
 				iD = i;			

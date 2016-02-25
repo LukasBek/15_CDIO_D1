@@ -8,18 +8,16 @@ public interface IFunktionalitet {
 
 	void setKode(int ID, String kode);
 
-	void createOperatoer(String navn, String cpr, int admin);
+	void createOperatoer(String navn, String cpr, int admin) throws FException;
 
-	void deleteOperatoer(int iD);
+	void deleteOperatoer(int iD) throws FException;
 
-	String[] getOperatoer(int iD);
+	String[] getOperatoer(int iD) throws FException;
 
 	void showMaalinger();
 	
 	void showMaalinger(int iD);
 	
-	void changeOperatoer(int iD, int choice, String value);
-	
-	
-	
+	void updateOperatoer(int iD, int choice, String value) throws FException;
+		
 }
