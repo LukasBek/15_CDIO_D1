@@ -17,7 +17,7 @@ public interface IOperatoer {
 	void setAdgangskode(int index, String ini);
 
 	String getCpr(int index);
-	
+
 	void setCpr(int index, String value);
 
 	int getAdminStatus(int index);

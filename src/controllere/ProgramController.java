@@ -1,6 +1,7 @@
 package controllere;
 
 import java.util.Scanner;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 
@@ -25,7 +26,7 @@ public class ProgramController {
 	boolean sysAdminMenu = true;
 
 	Scanner sc = new Scanner(System.in);
-	
+
 	public ProgramController(TUI tui) {
 		this.tui = tui;
 	}
@@ -77,16 +78,23 @@ public class ProgramController {
 		}
 		else{
 			System.out.println("Du skal vælge enten 1 eller 2: ");
-			tui.hovedMenu();
+			try {
+				tui.hovedMenu();
+			} catch (IOException e) {
+				System.out.println("En ukendt fejl er opstået - venligst kontakt devs for support.");
+			}
 		}
 	}
 
 	private void sysAdminMenu() {
 		sysAdminMenu = true;
+
+		System.out.println("");
 		System.out.println("Velkommen sysAdmin");
 		System.out.println("----------------------------------------");		
 
 		while (sysAdminMenu){
+			System.out.println("");
 
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Tast 1 for at oprette en ny operatør");
@@ -102,7 +110,6 @@ public class ProgramController {
 				sysAdminMenu();
 			}
 			try{
-
 				if (valg == 1){
 					System.out.println("Indtast navn: ");
 					String navn = sc.next();
@@ -114,12 +121,9 @@ public class ProgramController {
 					String cpr = sc.next();
 					System.out.println("Er det en administrator? (tast 1 hvis nej, 2 hvis ja)");
 					int admin = sc.nextInt();
-					try {
-						f.createOperatoer(navn, cpr, admin);
-					} catch (FException e) {
-						System.out.println("Wrong ID: "+ e.myprint());
-					}
+					f.createOperatoer(navn, cpr, admin);
 					System.out.println("En ny operator er nu blevet oprettet.");
+
 				}
 
 				else if (valg == 2){
@@ -128,10 +132,10 @@ public class ProgramController {
 					ID = sc.nextInt();
 					try {
 						f.deleteOperatoer(ID);
+						System.out.println("Operatoer "+ID+" er nu blevet slettet!");
 					} catch (FException e) {
-						System.out.println("Wrong ID: "+ e.myprint());
+						System.out.println(e.myprint());
 					}
-					System.out.println("Operatoer "+ID+" er nu blevet slettet!");
 				}
 
 				else if (valg == 3){
@@ -152,10 +156,10 @@ public class ProgramController {
 						}
 						try {
 							f.updateOperatoer(m3Valg, 1, m3ValgString);
+							System.out.println("Operatørens navn er nu ændret");
 						} catch (FException e) {
-							System.out.println("Wrong ID: "+ e.myprint());
+							System.out.println(e.myprint());
 						}
-						System.out.println("Operatørens navn er nu ændret");
 					} 
 
 					else if (m3Valg == 2){
@@ -167,7 +171,7 @@ public class ProgramController {
 							f.updateOperatoer(m3Valg, 2, m3ValgString);
 							System.out.println("Operatørens cpr-nummer er nu ændret");
 						} catch (FException e) {
-							System.out.println("Wrong ID: "+ e.myprint());
+							System.out.println(e.myprint());
 						}
 					} 
 
@@ -180,7 +184,7 @@ public class ProgramController {
 							f.updateOperatoer(m3Valg, 3, m3ValgString);
 							System.out.println("Operatørens navn er nu ændret");
 						} catch (FException e) {
-							System.out.println("Wrong ID: "+ e.myprint());
+							System.out.println(e.myprint());
 						}
 					}
 				}
@@ -191,7 +195,7 @@ public class ProgramController {
 					try {
 						System.out.println(Arrays.toString(f.getOperatoer(ID)));
 					} catch (FException e) {
-						System.out.println("Wrong ID: "+ e.myprint());
+						System.out.println(e.myprint());
 					}
 				}
 
@@ -213,6 +217,8 @@ public class ProgramController {
 
 	private void operatoerMenu(int ID) {
 		operatoerMenu = true;
+
+		System.out.println("");
 		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
 
@@ -258,7 +264,8 @@ public class ProgramController {
 							f.setKode(ID, kode);
 						}
 					}else{
-						System.out.println("Forkert adganskode!");	
+						System.out.println("Forkert adganskode!");
+						System.out.println("");
 					}
 				}
 				else if (valg == 3){
@@ -266,8 +273,11 @@ public class ProgramController {
 				}
 				else{
 					System.out.println("Ugyldigt valg, proev igen");
+					System.out.println("");
 				}
 			}catch(InputMismatchException e){
+				System.out.println("Ugyldigt input");
+				System.out.println("");
 				operatoerMenu(ID);
 			}
 		}

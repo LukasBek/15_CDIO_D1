@@ -127,7 +127,7 @@ public class AdgangskodeMetoder {
 				index = i;			
 			}		
 		}
-		
+
 		if(o.getAdgangskode(index).equals(kode)){
 			return true;
 		}else{

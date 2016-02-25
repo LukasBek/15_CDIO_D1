@@ -16,7 +16,7 @@ public class Tests {
 	static ProgramController pC;
 	static Operatoer o;
 	static Funktionalitet f;
-	
+
 	@BeforeClass
 	public static void init(){
 		sc = new Scanner(System.in);
@@ -42,7 +42,7 @@ public class Tests {
 
 		int actualValue = o.getOperatoerArrayLaengde();
 		int expectedValue = 3;
-		
+
 		assertEquals(actualValue, expectedValue);
 	}
 	@Test
@@ -61,7 +61,7 @@ public class Tests {
 		}
 		int actualValue = o.getOperatoerArrayLaengde();
 		int expectedValue = 2;
-		
+
 		assertEquals(actualValue, expectedValue);
 	}
 	@Test
@@ -81,7 +81,7 @@ public class Tests {
 		}
 		String actualValue = operatoer[1];
 		String expectedValue = "Jens";
-		
+
 		assertEquals(actualValue, expectedValue);
 	}
 	@Test
@@ -92,12 +92,12 @@ public class Tests {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String actualValue = o.getOprNavn(1);
 		String expectedValue = "Bob";
-		
+
 		assertEquals(actualValue, expectedValue);
-		
+
 	}
 	@Test
 	public void testChangeOperatoerCpr(){
@@ -107,12 +107,12 @@ public class Tests {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String actualValue = o.getCpr(1);
 		String expectedValue = "1234567890";
-		
+
 		assertEquals(actualValue, expectedValue);
-			
+
 	}
 	@Test
 	public void testChangeOperatoerPass(){
@@ -122,12 +122,12 @@ public class Tests {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String actualValue = o.getAdgangskode(1);
 		String expectedValue = "B0b";
-		
+
 		assertEquals(actualValue, expectedValue);
-		
+
 	}
 	@Test
 	public void testTjekLoginTrue(){
@@ -141,16 +141,16 @@ public class Tests {
 	public void testNettoVaegt(){
 		double actualValue = f.nettoVaegt(1, 2, 1);
 		double expectedValue = 2-1;
-		
+
 		assertTrue(actualValue == expectedValue);
-		
+
 	}
 	@Test
 	public void testSetKode(){
 		f.setKode(1, "bu3M");
 		String actualValue = o.getAdgangskode(1);
 		String expectedValue = "bu3M";
-		
+
 		assertEquals(actualValue, expectedValue);
 	}
 }

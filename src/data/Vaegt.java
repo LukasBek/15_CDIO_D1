@@ -3,19 +3,19 @@ package data;
 import java.util.ArrayList;
 
 public class Vaegt {
-	
-ArrayList<v> vArray = new ArrayList<v>();
-	
+
+	ArrayList<v> vArray = new ArrayList<v>();
+
 	public void addMaaling(int maalingsID, double vaegt, int Id){
-		
+
 		vArray.add(new v(maalingsID, vaegt, Id));
 
 	}
-	
+
 	public double getMaalingsID(int index){
 		return (vArray.get(index)).getMaalingsID();
 	}
-	
+
 	/**
 	 * Returnere en vaegt p� et et givent sted i arrayet
 	 * @param index : Placeringen i Array Listen metoden bliver kaldt
@@ -39,27 +39,27 @@ ArrayList<v> vArray = new ArrayList<v>();
 	public int getVaegtArratLaengde(){
 		return vArray.size();
 	}
-	
+
 	public String toString(int index) {
 		return "Måling: "+ getMaalingsID(index) + " Operatør: " + getId(index) + " Vægt: " + getVaegt(index);
-		
+
 	}
-	
+
 
 	private class v{
-		
+
 		private double vaegt;
 		private int Id;
 		private int maalingsID;
-		
+
 		private v(int maalingsID, double vaegt, int Id){
-			
+
 			this.vaegt = vaegt;
 			this.Id = Id;
 			this.maalingsID = maalingsID;
-			
+
 		}
-		
+
 		public double getMaalingsID() {
 			return maalingsID;
 		}

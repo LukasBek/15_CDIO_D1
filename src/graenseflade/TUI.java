@@ -1,5 +1,6 @@
 package graenseflade;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,8 +11,8 @@ public class TUI {
 
 	ProgramController lC = new ProgramController(this);
 
-	public void hovedMenu(){
-		
+	public void hovedMenu() throws IOException{
+
 		while (true){
 			Scanner sc = new Scanner(System.in);
 			System.out.println(
@@ -20,14 +21,13 @@ public class TUI {
 							+"---------------------------------------\n"
 							+"For operatør-login, tast 1 \n"
 							+"For sysAdmin-login, tast 2");
-			
+
 			try{
-			lC.valg(sc.nextInt());
+				lC.valg(sc.nextInt());
 			}catch (NumberFormatException ne) {
-				System.out.println("\tPlease enter a positive whole number.");
+				System.out.println("\tIndtast venligst et gyldigt valg");
 			}catch (InputMismatchException ipe){
-				System.out.println("\tPlease enter a positive wole number ");
-				
+				System.out.println("\tIndtast venligst et gyldigt valg");		
 			}
 		}
 	}

@@ -69,14 +69,14 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 
 	@Override
-	public void createOperatoer(String oprNavn, String cpr, int admin) throws FException{		
-		
+	public void createOperatoer(String oprNavn, String cpr, int admin) {			
 		String Adgangskode = ak.getNyKode(6);		
 		o.addOp(oprId, oprNavn, Adgangskode, cpr, admin);
-		System.out.println("DEV NOTICE - den nye operatoers adganskode (copy paste): "+Adgangskode);
+		System.out.println("DEV NOTICE - den nye operatørs adganskode (copy paste): "+Adgangskode);
+		System.out.println("DEV NOTICE - den nye operatørs ID er: "+oprId);
 		oprId++;
 	}
-	
+
 	@Override
 	public void updateOperatoer(int iD, int choice, String value) throws FException{
 		int index = -1;
@@ -122,15 +122,15 @@ public class Funktionalitet implements IFunktionalitet {
 				index = i;					
 			}
 		}
-	
+
 		if (index != -1){
-		String[] opValues = new String[5];
-		opValues[0] = Integer.toString(o.getOprId(index));
-		opValues[1] = o.getOprNavn(index);
-		opValues[2] = o.getCpr(index);
-		opValues[3] = o.getAdgangskode(index);
-		opValues[4] = Integer.toString(o.getAdminStatus(index));
-		return opValues;
+			String[] opValues = new String[5];
+			opValues[0] = Integer.toString(o.getOprId(index));
+			opValues[1] = o.getOprNavn(index);
+			opValues[2] = o.getCpr(index);
+			opValues[3] = o.getAdgangskode(index);
+			opValues[4] = Integer.toString(o.getAdminStatus(index));
+			return opValues;
 		}else{
 			throw new FException(iD);
 		}

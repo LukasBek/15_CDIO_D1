@@ -50,6 +50,8 @@ public class AdgangskodeData {
 	 */
 	public String getNyKode(int kodeLaengde){
 
+		adgangskode = "";
+
 		tal=false;
 		tegn= false;
 		smaaBogstaver=false;
