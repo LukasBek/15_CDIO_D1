@@ -87,8 +87,11 @@ public class ProgramController {
 			valg = sc.nextInt();
 
 			if (valg == 1){
-				System.out.println("Indtast navn: ");
-				String navn = sc.next();
+				String navn;
+				do{
+					System.out.println("Indtast navn: ");
+					navn = sc.next();
+				} while (navn.length() >= 2 && navn.length() <= 20);
 				System.out.println("Indtast cpr-nummer: ");
 				String cpr = sc.next();
 				System.out.println("Er det en administrator? (tast 1 hvis nej, 2 hvis ja)");
@@ -125,8 +128,10 @@ public class ProgramController {
 				if(m3Valg == 1){
 					System.out.println("Intast operatørens ID");
 					m3Valg = sc.nextInt();
-					System.out.println("Intast nyt navn til operatør");
-					m3ValgString = sc.next();
+					do{
+						System.out.println("Intast nyt navn til operatør");
+						m3ValgString = sc.next();
+					} while (m3ValgString.length() >= 2 && m3ValgString.length() <= 20);
 					try {
 						f.updateOperatoer(m3Valg, 1, m3ValgString);
 					} catch (FException e) {

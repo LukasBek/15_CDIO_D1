@@ -1,6 +1,7 @@
 package tests;
 
 import controllere.ProgramController;
+import funktionalitet.FException;
 import funktionalitet.Funktionalitet;
 import data.Operatoer;
 import java.util.Scanner;
@@ -32,7 +33,12 @@ public class Tests {
 	}
 	@Test
 	public void testCreateOperatoer(){
-		f.createOperatoer("Jens", "1234567890", 1);
+		try {
+			f.createOperatoer("Jens", "1234567890", 1);
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		int actualValue = o.getOperatoerArrayLaengde();
 		int expectedValue = 3;
@@ -41,8 +47,18 @@ public class Tests {
 	}
 	@Test
 	public void testDeleteOperatoer(){
-		f.createOperatoer("Jens", "1234567890", 1);
-		f.deleteOperatoer(11);
+		try {
+			f.createOperatoer("Jens", "1234567890", 1);
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			f.deleteOperatoer(11);
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		int actualValue = o.getOperatoerArrayLaengde();
 		int expectedValue = 2;
 		
@@ -50,8 +66,19 @@ public class Tests {
 	}
 	@Test
 	public void testGetOperatoer(){
-		f.createOperatoer("Jens", "1234567890", 1);
-		String[] operatoer = f.getOperatoer(11);
+		try {
+			f.createOperatoer("Jens", "1234567890", 1);
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String[] operatoer = null;
+		try {
+			operatoer = f.getOperatoer(11);
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String actualValue = operatoer[1];
 		String expectedValue = "Jens";
 		
@@ -59,7 +86,12 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerName(){
-		f.updateOperatoer(1, 1, "Bob");
+		try {
+			f.updateOperatoer(1, 1, "Bob");
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String actualValue = o.getOprNavn(1);
 		String expectedValue = "Bob";
@@ -69,7 +101,12 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerCpr(){
-		f.updateOperatoer(1, 2, "1234567890");
+		try {
+			f.updateOperatoer(1, 2, "1234567890");
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String actualValue = o.getCpr(1);
 		String expectedValue = "1234567890";
@@ -79,7 +116,12 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerPass(){
-		f.updateOperatoer(1, 3, "B0b");
+		try {
+			f.updateOperatoer(1, 3, "B0b");
+		} catch (FException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String actualValue = o.getAdgangskode(1);
 		String expectedValue = "B0b";
