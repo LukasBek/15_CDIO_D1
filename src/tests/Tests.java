@@ -33,9 +33,8 @@ public class Tests {
 	@Test
 	public void testCreateOperatoer(){
 		f.createOperatoer("Jens", "1234567890", 1);
-		int arrayELength = o.getOperatoerArrayLaengde();
-		
-		int actualValue = arrayELength;
+
+		int actualValue = o.getOperatoerArrayLaengde();
 		int expectedValue = 3;
 		
 		assertEquals(actualValue, expectedValue);
