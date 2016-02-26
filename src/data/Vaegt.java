@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Vaegt implements IVaegt{
 
-	ArrayList<v> vArray = new ArrayList<v>();
+	private ArrayList<v> vArray = new ArrayList<v>();
 
 	/**
 	 * Tilfoejer en ny maaling lavet af en operatør
@@ -70,7 +70,7 @@ public class Vaegt implements IVaegt{
 
 		}
 
-		public double getMaalingsID() {
+		private double getMaalingsID() {
 			return maalingsID;
 		}
 
