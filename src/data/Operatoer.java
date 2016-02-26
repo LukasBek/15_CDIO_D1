@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Operatoer implements IOperatoer{
 
-	ArrayList<op> opArray = new ArrayList<op>();
+	private ArrayList<op> opArray = new ArrayList<op>();
 
 	public Operatoer(){
 		this.addOp(10, "Admin", "Abc02324", "", 2);
