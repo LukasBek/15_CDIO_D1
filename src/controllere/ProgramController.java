@@ -67,7 +67,7 @@ public class ProgramController {
 			try{
 				ID = sc.nextInt();
 			}catch(InputMismatchException e){
-				System.out.println("Du skal indtaste et gyldigt ID (ID'er beståer af tal mellem 1-10");
+				System.out.println("Du skal indtaste et gyldigt ID (sysAdmin ID'er beståer af tal mellem 1-10");
 				try {
 					tui.hovedMenu();
 				} catch (IOException e1) {
@@ -101,6 +101,7 @@ public class ProgramController {
 		System.out.println("Velkommen sysAdmin");
 		System.out.println("----------------------------------------");		
 
+		//I en while løkke, hvilket betyder at sysAdmin ikke kan komme ud af sin menu, før han logger ud
 		while (sysAdminMenu){
 			System.out.println("");
 
@@ -230,6 +231,7 @@ public class ProgramController {
 		System.out.println("Velkommen operatør");
 		System.out.println("------------------------------------------");
 
+		//En while løkke der gør at operatøren ikke kan komme tilbage før han logger ud
 		while (operatoerMenu){
 
 			Scanner sc = new Scanner(System.in);

@@ -2,7 +2,7 @@ package data;
 
 import java.util.ArrayList;
 
-public class AdgangskodeData {
+public class AdgangskodeData implements IAdgangskode{
 
 	private ArrayList<String> karakterer = new ArrayList<String>();
 

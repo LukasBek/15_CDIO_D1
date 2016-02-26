@@ -10,10 +10,11 @@ public class Operatoer implements IOperatoer{
 		this.addOp(10, "Admin", "Abc02324", "", 2);
 	}
 
+	/**
+	 * Tilføjer en ny operatoer
+	 */
 	public void addOp(int oprId, String oprNavn, String adgangskode, String cpr, int admin){
-
 		opArray.add(new op(oprId, oprNavn, adgangskode, cpr, admin));
-
 	}
 
 	/**
@@ -74,6 +75,7 @@ public class Operatoer implements IOperatoer{
 	public String getCpr(int index){
 		return (opArray.get(index)).getCpr();
 	}
+	
 	/**
 	 * Soetter cpr-nummeret for en given operatoer
 	 * @param index : Placeringen i Array Listen metoden bliver kaldt
@@ -89,9 +91,9 @@ public class Operatoer implements IOperatoer{
 	 * @param index : Placeringen i Array Listen metoden bliver kaldt
 	 * @return Adminstatus
 	 */
+	
 	public int getAdminStatus(int index){
 		return (opArray.get(index)).getAdmin();
-
 	}
 
 	/**
@@ -100,12 +102,13 @@ public class Operatoer implements IOperatoer{
 	 */
 	public int getOperatoerArrayLaengde(){
 		return opArray.size();
-
 	}
+	
 	/**
 	 * Fjerner en operatoer fra arraylisten
 	 * @param index : Placeringen i Array Listen metoden bliver kaldt
 	 */
+	
 	public void fjernOperatoer(int index){
 		opArray.remove(index);
 	}
@@ -131,27 +134,35 @@ public class Operatoer implements IOperatoer{
 		private int getOprId() {
 			return oprId;
 		}
+		
 		private void setOprId(int oprId) {
 			this.oprId = oprId;
 		}
+		
 		private String getOprNavn() {
 			return oprNavn;
 		}
+		
 		private void setOprNavn(String oprNavn) {
 			this.oprNavn = oprNavn;
 		}
+		
 		private String getIni() {
 			return adgangskode;
 		}
+		
 		private void setIni(String pwd) {
 			this.adgangskode = pwd;
 		}
+		
 		private String getCpr() {
 			return cpr;
 		}
+		
 		private int getAdmin(){
 			return admin;
 		}
+		
 		private void setCpr(String value){
 			this.cpr = value;
 		}

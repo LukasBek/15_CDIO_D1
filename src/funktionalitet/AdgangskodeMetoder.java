@@ -20,6 +20,14 @@ public class AdgangskodeMetoder {
 	public AdgangskodeMetoder(Operatoer o) {
 		this.o = o;
 	}
+	
+	/**
+	 * Metode der tester hvorvidt en bruger nye password stemmer overens
+	 * med de satte regler
+	 * @param id Operatørens ID
+	 * @param sc scanner objekt der sendes videre
+	 * @return returnere koden, når den er gået igennem kontroltjekket
+	 */
 	public String kontrollerKode(int id, Scanner sc){
 		String kode;
 		do{
@@ -33,8 +41,8 @@ public class AdgangskodeMetoder {
 		}while(!this.kontrolKode(kode));
 		return kode;
 	}
+	
 	/**
-	 * 
 	 * @param adgangskode Indsæt adgangskoden som skal kontrolleres
 	 * @return true hvis den er på 6 tegn eller derover
 	 */
@@ -48,11 +56,9 @@ public class AdgangskodeMetoder {
 			System.out.println("Fejl i kontrolKodeLaengde");
 			return false;
 		}
-
 	}
 
 	/**
-	 * 
 	 * @param adgangskode Indsæt adgangskoden som skal kontrolleres
 	 * @return true hvis den består...
 	 */
@@ -73,6 +79,7 @@ public class AdgangskodeMetoder {
 				break;
 			}
 		}
+		
 		for(int j=10; j<=35; j++){
 			if(adgangskode.contains(karakterer.get(j))){
 				smaaBogstaver = true;
@@ -80,6 +87,7 @@ public class AdgangskodeMetoder {
 				break;
 			}
 		}
+		
 		for(int j=36; j<=61; j++){
 			if(adgangskode.contains(karakterer.get(j))){
 				storeBogstaver = true;
@@ -87,6 +95,7 @@ public class AdgangskodeMetoder {
 				break;
 			}
 		}
+		
 		for(int j=62; j<=68; j++){
 			if(adgangskode.contains(karakterer.get(j))){
 				tegn = true;
@@ -97,7 +106,6 @@ public class AdgangskodeMetoder {
 
 		if(!tal||!smaaBogstaver||!storeBogstaver||!tegn){
 			if(forskelige<3){
-				//					System.out.println("Din adgangskode skal indholde mindst 3 følgende: Tal, Specialtegn, Stort Bogstav, Lille Bogstav");
 				return false;
 			}
 		}
@@ -105,7 +113,6 @@ public class AdgangskodeMetoder {
 	}
 
 	/**
-	 * 
 	 * @param kode Første kode
 	 * @param kodex Anden kode
 	 * @return true hvis koderne er ens METODEN ER TIL OPRETTELSE AF NY KODE
@@ -115,6 +122,7 @@ public class AdgangskodeMetoder {
 		if(kode.equals(kodex)) return true;
 		else return false;
 	}
+	
 	/**
 	 * 
 	 * @return true hvis koden stemmer med brugerens adgangskode
@@ -133,9 +141,5 @@ public class AdgangskodeMetoder {
 		}else{
 			return false;
 		}
-
-
 	}
-
-
 }

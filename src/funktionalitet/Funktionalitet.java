@@ -11,14 +11,11 @@ public class Funktionalitet implements IFunktionalitet {
 	private AdgangskodeData ak = new AdgangskodeData();
 	private Operatoer o;
 
-
-
 	private int maalingsID = 1;
 	private int oprId = 11;	
 
 	public Funktionalitet(Operatoer o) {
 		this.o = o;
-
 	}
 
 	@Override
@@ -142,17 +139,5 @@ public class Funktionalitet implements IFunktionalitet {
 		for (int i = 0; i < v.getVaegtArratLaengde(); i++){
 			System.out.println(v.toString(i));
 		}
-	}
-
-
-
-	@Override
-	public void showMaalinger(int iD) {
-		int index = -1;
-		for (int i = 0 ; i < v.getVaegtArratLaengde() ; i++){
-			if (iD == v.getId(index)){
-				System.out.println(v.toString(index));	
-			}	
-		}	
 	}
 }

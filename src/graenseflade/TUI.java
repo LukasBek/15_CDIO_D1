@@ -11,8 +11,8 @@ public class TUI {
 
 	ProgramController lC = new ProgramController(this);
 
+	//Hovedmenuen for programmet
 	public void hovedMenu() throws IOException{
-
 		while (true){
 			Scanner sc = new Scanner(System.in);
 			System.out.println(
