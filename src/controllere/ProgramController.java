@@ -86,7 +86,7 @@ public class ProgramController {
 		}
 	}
 
-	private void sysAdminMenu() {
+	public void sysAdminMenu() {
 		sysAdminMenu = true;
 
 		System.out.println("");
@@ -215,7 +215,7 @@ public class ProgramController {
 
 	}
 
-	private void operatoerMenu(int ID) {
+	public void operatoerMenu(int ID) {
 		operatoerMenu = true;
 
 		System.out.println("");
