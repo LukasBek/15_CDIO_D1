@@ -30,7 +30,7 @@ public class Tests {
 		f.createOperatoer("Jens", "1234567890", 1);
 
 		int actualValue = o.getOperatoerArrayLaengde();
-		int expectedValue = 3;
+		int expectedValue = 2;
 
 		assertEquals(actualValue, expectedValue);
 	}
@@ -44,7 +44,7 @@ public class Tests {
 			e.printStackTrace();
 		}
 		int actualValue = o.getOperatoerArrayLaengde();
-		int expectedValue = 2;
+		int expectedValue = 1;
 
 		assertEquals(actualValue, expectedValue);
 	}
@@ -65,8 +65,9 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerName(){
+		f.createOperatoer("Jens", "1234567890", 1);
 		try {
-			f.updateOperatoer(1, 1, "Bob");
+			f.updateOperatoer(11, 1, "Bob");
 		} catch (FException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,8 +81,9 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerCpr(){
+		f.createOperatoer("Jens", "1234567890", 1);
 		try {
-			f.updateOperatoer(1, 2, "1234567890");
+			f.updateOperatoer(11, 2, "1234567890");
 		} catch (FException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -95,8 +97,9 @@ public class Tests {
 	}
 	@Test
 	public void testChangeOperatoerPass(){
+		f.createOperatoer("Jens", "1234567890", 1);
 		try {
-			f.updateOperatoer(1, 3, "B0b");
+			f.updateOperatoer(11, 3, "B0b");
 		} catch (FException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,11 +113,13 @@ public class Tests {
 	}
 	@Test
 	public void testTjekLoginTrue(){
-		assertTrue(f.tjekLogin(1, "Test", 1));
+		f.createOperatoer("Jens", "1234567890", 1);
+		assertTrue(f.tjekLogin(11, o.getAdgangskode(1), 1));
 	}
 	@Test
 	public void testTjekLoginFalse(){
-		assertFalse(f.tjekLogin(1, "wrongPassword", 1));
+		f.createOperatoer("Jens", "1234567890", 1);
+		assertFalse(f.tjekLogin(11, "wrongPassword", 1));
 	}
 	@Test
 	public void testNettoVaegt(){
@@ -126,7 +131,8 @@ public class Tests {
 	}
 	@Test
 	public void testSetKode(){
-		f.setKode(1, "bu3M");
+		f.createOperatoer("Jens", "1234567890", 1);
+		f.setKode(11, "bu3M");
 		String actualValue = o.getAdgangskode(1);
 		String expectedValue = "bu3M";
 
