@@ -42,7 +42,11 @@ public class ProgramController {
 				ID = sc.nextInt();
 			}catch(InputMismatchException e){
 				System.out.println("Du skal indtaste et gyldigt ID (ID'er består af tal mellem 11-99)");
-				valg(valg);
+				try {
+					tui.hovedMenu();
+				} catch (IOException e1) {
+					System.out.println("Hov, der skete en fejl - venligst kontakt devs for support.");
+				}
 			}
 
 			System.out.println("Indtast Adgangskode: ");
@@ -64,7 +68,11 @@ public class ProgramController {
 				ID = sc.nextInt();
 			}catch(InputMismatchException e){
 				System.out.println("Du skal indtaste et gyldigt ID (ID'er beståer af tal mellem 1-10");
-				valg(valg);
+				try {
+					tui.hovedMenu();
+				} catch (IOException e1) {
+					System.out.println("Hov, der skete en fejl - venligst kontakt devs for support.");
+				}
 			}
 
 			System.out.println("Indtast Adgangskode: ");
