@@ -3,6 +3,7 @@ package tests;
 import controllere.ProgramController;
 import funktionalitet.FException;
 import funktionalitet.Funktionalitet;
+import graenseflade.TUI;
 import data.Operatoer;
 import java.util.Scanner;
 import static org.junit.Assert.*;
@@ -12,33 +13,21 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class Tests {
-	static Scanner sc;
+	static TUI t;
 	static ProgramController pC;
 	static Operatoer o;
 	static Funktionalitet f;
 
-	@BeforeClass
-	public static void init(){
-		sc = new Scanner(System.in);
-		pC = new ProgramController(sc);
-		o = new Operatoer();
-		f = new Funktionalitet(o);
-	}
 	@Before
 	public void resetOps(){
-		sc = new Scanner(System.in);
-		pC = new ProgramController(sc);
+		t = new TUI();
+		pC = new ProgramController(t);
 		o = new Operatoer();
 		f = new Funktionalitet(o);
 	}
 	@Test
 	public void testCreateOperatoer(){
-		try {
-			f.createOperatoer("Jens", "1234567890", 1);
-		} catch (FException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		f.createOperatoer("Jens", "1234567890", 1);
 
 		int actualValue = o.getOperatoerArrayLaengde();
 		int expectedValue = 3;
@@ -47,12 +36,7 @@ public class Tests {
 	}
 	@Test
 	public void testDeleteOperatoer(){
-		try {
-			f.createOperatoer("Jens", "1234567890", 1);
-		} catch (FException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		f.createOperatoer("Jens", "1234567890", 1);
 		try {
 			f.deleteOperatoer(11);
 		} catch (FException e) {
@@ -66,12 +50,7 @@ public class Tests {
 	}
 	@Test
 	public void testGetOperatoer(){
-		try {
-			f.createOperatoer("Jens", "1234567890", 1);
-		} catch (FException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		f.createOperatoer("Jens", "1234567890", 1);
 		String[] operatoer = null;
 		try {
 			operatoer = f.getOperatoer(11);
